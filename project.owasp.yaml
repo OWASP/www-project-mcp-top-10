@@ -1,0 +1,23 @@
+audience:
+  - breaker
+  - builder
+leaders:
+  - name: Vandana Verma Sehgal
+    email: vandana.verma@owasp.org
+    github: vermava
+  - name: Liran Tal
+    email: vandana.verma@owasp.org
+    github: lirantal
+level: 2
+name: OWASP MCP Top 10
+pitch: A very brief, one-line description of your project
+repositories:
+  - name: www-project-mcp-top-10
+    url: https://github.com/OWASP/www-project-mcp-top-10
+    description: OWASP Foundation web repository
+tags:
+  - example-tag
+  - custom-tag-1
+  - custom-tag-2
+type: documentation
+website: https://owasp.org/www-project-mcp-top-10
