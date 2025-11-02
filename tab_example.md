@@ -23,8 +23,8 @@ MCP ecosystems depend on open-source packages, connectors, and model-side plug-i
 ## MCP5:2025 – Insecure Plugin Integrations Description MCP (Model Context Protocol) 
 MCP Environments often extend their functionality through plugins—modular components that expose new tools, APIs, or context sources to agents. These plugins share the same MCP session or context, enabling them to exchange data, access logs, and communicate with the agent through a unified interface. When multiple plugins operate within a shared context without isolation or access boundaries, data and execution flows can inadvertently overlap. A malicious or poorly designed plugin can monitor or intercept requests from others, extract sensitive data, or alter outputs, leading to cross-plugin data leakage, privilege escalation, or malicious code execution.
 
-## MCP6:2025 – Inadequate Authentication & Authorization
-Weak identity management or missing authorization checks in tool-server interactions can allow impersonation or privilege misuse. Attackers may replay tokens, forge session identifiers, or impersonate trusted servers. Mutual authentication, token binding, and zero-trust service design are critical defenses.
+## MCP6:2025 – Prompt Injection via Contextual Payloads
+This risk is analogous to classic injection attacks (e.g., XSS, SQLi), but in the MCP world the “interpreter” is the model and the “payload” is text (or any content that becomes text after OCR/processing). Because models are designed to follow natural-language instructions, prompt injection attacks are both powerful and subtle.
 
 ## MCP7:2025 – Schema Poisoning
 Schema poisoning occurs when an adversary tampers with the contract or schema definitions that govern agent-to-tool interactions in an MCP ecosystem. Schemas define the shape, types, and semantics of requests and responses — effectively the “language” agents use to call tools. If an attacker can modify a schema (or its metadata) so that a benign-sounding operation maps to a destructive action, agents that trust and follow the schema may inadvertently execute dangerous commands.
