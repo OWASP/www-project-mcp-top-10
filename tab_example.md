@@ -17,17 +17,17 @@ Temporary or loosely defined permissions within MCP servers often expand over ti
 ## MCP3:2025 – Insecure MCP Protocol Implementations
 Unverified or custom MCP server implementations frequently omit security validations such as authentication, schema enforcement, or command validation. This can result in remote code execution, unauthorized tool access, or schema manipulation. Adhering to secure implementation guidelines, version validation, and protocol conformance testing reduces these exposures.
 
-## MCP4:2025 – Inadequate Authentication & Authorization
-Weak identity management or missing authorization checks in tool-server interactions can allow impersonation or privilege misuse. Attackers may replay tokens, forge session identifiers, or impersonate trusted servers. Mutual authentication, token binding, and zero-trust service design are critical defenses.
-
-## MCP5:2025 – Schema Poisoning
-Schema poisoning occurs when an adversary tampers with the contract or schema definitions that govern agent-to-tool interactions in an MCP ecosystem. Schemas define the shape, types, and semantics of requests and responses — effectively the “language” agents use to call tools. If an attacker can modify a schema (or its metadata) so that a benign-sounding operation maps to a destructive action, agents that trust and follow the schema may inadvertently execute dangerous commands.
-
-## MCP6:2025 – Supply Chain & Dependency Tampering
+## MCP4:2025 – Supply Chain & Dependency Tampering
 MCP ecosystems depend on open-source packages, connectors, and model-side plug-ins that may contain malicious or vulnerable components. A compromised dependency can alter agent behavior or introduce execution-level backdoors. Implement signed components, dependency monitoring, and provenance tracking for all MCP modules.
 
-## MCP7:2025 – Insecure Plugin Integrations Description MCP (Model Context Protocol) 
+## MCP5:2025 – Insecure Plugin Integrations Description MCP (Model Context Protocol) 
 MCP Environments often extend their functionality through plugins—modular components that expose new tools, APIs, or context sources to agents. These plugins share the same MCP session or context, enabling them to exchange data, access logs, and communicate with the agent through a unified interface. When multiple plugins operate within a shared context without isolation or access boundaries, data and execution flows can inadvertently overlap. A malicious or poorly designed plugin can monitor or intercept requests from others, extract sensitive data, or alter outputs, leading to cross-plugin data leakage, privilege escalation, or malicious code execution.
+
+## MCP6:2025 – Inadequate Authentication & Authorization
+Weak identity management or missing authorization checks in tool-server interactions can allow impersonation or privilege misuse. Attackers may replay tokens, forge session identifiers, or impersonate trusted servers. Mutual authentication, token binding, and zero-trust service design are critical defenses.
+
+## MCP7:2025 – Schema Poisoning
+Schema poisoning occurs when an adversary tampers with the contract or schema definitions that govern agent-to-tool interactions in an MCP ecosystem. Schemas define the shape, types, and semantics of requests and responses — effectively the “language” agents use to call tools. If an attacker can modify a schema (or its metadata) so that a benign-sounding operation maps to a destructive action, agents that trust and follow the schema may inadvertently execute dangerous commands.
 
 ## MCP8:2025 – Lack of Audit and Telemetry
 Without comprehensive activity logging and real-time alerting, unauthorized actions or data access may go undetected.
