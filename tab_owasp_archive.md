@@ -1,12 +1,12 @@
 ---
 title: OWASP_ARCHIVE
-displaytext: OWASP-2025
-layout: col-sidebar
+layout: null
 tab: true
 order: 4
-level: 2
 tags: mcptopten
 ---
+
+
 
 ## About the MCP Top 10
 
