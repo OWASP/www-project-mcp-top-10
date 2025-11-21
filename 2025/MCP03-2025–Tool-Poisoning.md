@@ -52,21 +52,10 @@ If schemas are treated as configuration files that can be changed without formal
 - Each schema/version should include provenance metadata: author, signature, hash, timestamp, and approved-by.
 - Agents should log the schema hash and provenance metadata used for each invocation for audit and forensic purposes.
 
-
-6. Staging, Contract Testing & Canarying
-- Put schema changes through a staging environment with contract tests (consumer-driven contracts) and fuzz tests that assert semantics.
-- Canary schema rollouts: deploy to a small subset of agents, monitor behavior, and only then promote.
-
-
-7. Runtime Enforcement & Guardrails
+6. Runtime Enforcement & Guardrails
 - Don’t allow agents to interpret schema changes as immediate action drivers without revalidation.
 - Require a “schema attestation” that binds the schema hash to a specific agent identity and session.
 - Implement runtime sanity checks: if an operation’s semantic impact exceeds a threshold (e.g., destructive verbs, data volume), pause execution and require human approval.
-
-8. Automated Detection & Drift Monitoring
-- Monitor schema diffs for semantic changes (e.g., operations switching HTTP verbs, parameter semantics changing).
-- Alert on unusual or high-risk diffs and block automated promotion until reviewed.
-
 
 ### Remediation
 
@@ -75,8 +64,6 @@ If schemas are treated as configuration files that can be changed without formal
 - Rotate any tokens or credentials that may have been abused.
 - Conduct forensic analysis: which agents used the poisoned schema, what actions executed, which data changed or was removed.
 - Patch CI/CD and registry processes to require signed commits and multi-party approvals where missing.
-
-
 
 ### Example Attack Scenarios
 
