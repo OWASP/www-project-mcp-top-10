@@ -9,13 +9,15 @@ pitch: A very brief, one-line description of your project
 
 ---
 
+## About the MCP Top 10
+
 As AI systems become increasingly integrated into software supply chains, enterprise applications, and security infrastructure, the need for structured, secure, and interpretable model interaction layers is paramount. The Model Context Protocol (MCP) is emerging as a framework to define the operational, contextual, and behavioral boundaries of AI models. However, with the power and flexibility of MCPs comes a new class of vulnerabilities and attack surfaces that remain underexplored.
 
 This OWASP Top 10 for MCP outlines the most critical security concerns arising in the lifecycle of MCP-enabled systems—spanning from model misbinding, context spoofing, and prompt-state manipulation to insecure memory references and covert channel abuse. These risks are amplified in scenarios involving agentic AI, model chaining, multi-modal orchestration, and dynamic role assignment.
 
 By mapping the top 10 MCP-related vulnerabilities and offering concrete recommendations for secure design, implementation, and auditing practices, this project aims to equip AI developers, ML engineers, and security practitioners with the insights necessary to build context-aware and attack-resilient AI systems. The OWASP MCP Top 10 will serve as a living document, evolving alongside the pace of AI model capability and protocol innovation—anchored in real-world threats, research findings, and industry feedback.
 
-### Road Map
+## Road Map
 Road Map
 Phase 1 – Drafting
 Create an initial draft of requirements that cover the industry aspects.
@@ -35,30 +37,6 @@ Incorporate feedback from pilot testing.
 Phase 5 – Continuous Improvement
 Periodically release updated versions
 
----
-
-layout: col-sidebar
-title: OWASP Smart Contract Top 10
-tags: smartcontract
-level: 2
-type: documentation
-pitch: Welcome to the OWASP Top Ten for Smart Contracts
-
----
-
-![OWASP Smart Contract Logo](assets/images/owasp-sctop10.png)
-
-
-## About the Smart Contract Top 10
-
-The OWASP Smart Contract Top 10 (2025) is a standard awareness document providing Web3 developers and security teams with insights into the top 10 vulnerabilities found in smart contracts.
-
-It serves as a reference to ensure that smart contracts are secured against the most critical weaknesses exploited or discovered in recent years. The **Smart Contract Top 10** can be used alongside other smart contract security projects to ensure comprehensive risk coverage. Visit [scs.owasp.org](https://scs.owasp.org/) for more details on OWASP Smart Contract Security Projects.
-
-## Changes
-
-
-![OWASP 2023 to 2025 Changes](assets/images/Mapping2023-2025.png)
 
 ### Top 10
 
@@ -78,8 +56,7 @@ It serves as a reference to ensure that smart contracts are secured against the 
 | Title | Description |
 | -- | -- |
 | MCP01 - Token Mismanagement & Secret Exposure | Hard-coded credentials, long-lived tokens, and secrets stored in model memory or protocol logs can expose sensitive environments to unauthorized access. Attackers may retrieve these tokens through prompt injection, compromised context, or debug traces, leading to full compromise of connected systems. |
-| MCP02 - Temporary or loosely defined permissions within MCP servers often expand over time, granting agents excessive capabilities.
-An attacker exploiting weak scope enforcement can perform unintended actions such as repository modification, system control, or data exfiltration. |
+| MCP02 - Privilege Escalation via Scope Creep| Temporary or loosely defined permissions within MCP servers often expand over time, granting agents excessive capabilities. An attacker exploiting weak scope enforcement can perform unintended actions such as repository modification, system control, or data exfiltration. |
 | MCP03 - Tool Poisoning | Tool poisoning occurs when an adversary compromises the tools, plugins, or their outputs that an AI model depends on - injecting malicious, misleading, or biased context to manipulate model behavior. |
 | MCP04 - Software Supply Chain Attacks & Dependency Tampering | A compromised dependency can alter agent behavior or introduce execution-level backdoors. |
 | MCP05 - Command Injection & Execution | Command injection occurs when an AI agent constructs and executes system commands, shell scripts, API calls, or code snippets using untrusted input whether from user prompts, retrieved context, or third-party data sources without proper validation or sanitization. |
