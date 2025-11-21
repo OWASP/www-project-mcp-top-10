@@ -1,4 +1,9 @@
-## MCP01:2025 - Privilege Escalation via Scope Creep
+---
+
+layout: col-sidebar
+title: "MCP02:2025 - Token Mismanagement and Secret Exposure"
+
+---
 
 ### Description:
 Scope creep occurs when temporary or narrowly scoped permissions granted to an MCP agent or tool are expanded over time—intentionally for convenience or accidentally through configuration drift—until the agent holds broad or administrative privileges.
