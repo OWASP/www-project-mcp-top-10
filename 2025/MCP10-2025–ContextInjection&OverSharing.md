@@ -1,3 +1,10 @@
+---
+
+layout: col-sidebar
+title: "MCP10:2025 – Context Injection & Over-Sharing"
+
+---
+
 #### Description
 In MCP-based systems, context acts as the working memory for agents — storing prompts, retrieved documents, intermediate reasoning, and interaction history. When this context is shared, persistently stored, or insufficiently scoped, sensitive information from one session, agent, or user can leak into another.
 

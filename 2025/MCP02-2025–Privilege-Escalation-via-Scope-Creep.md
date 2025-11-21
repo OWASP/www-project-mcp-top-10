@@ -1,7 +1,7 @@
 ---
 
 layout: col-sidebar
-title: "MCP02:2025 - Token Mismanagement and Secret Exposure"
+title: "MCP02:2025 - Privilege Escalation via Scope Creep"
 
 ---
 
