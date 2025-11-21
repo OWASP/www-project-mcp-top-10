@@ -1,6 +1,7 @@
 audience:
   - breaker
   - builder
+  - defender
 leaders:
   - name: Vandana Verma Sehgal
     email: vandana.verma@owasp.org
