@@ -1,7 +1,8 @@
 ---
 
 layout: col-sidebar
-title: "MCP01:2025 - Token Mismanagement & Secret Exposure"
+title: "MCP01:2025 - Token Mismanagement and Secret Exposure"
+
 ---
 
 ### Description:
