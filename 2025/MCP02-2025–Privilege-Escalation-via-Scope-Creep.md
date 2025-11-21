@@ -14,21 +14,21 @@ Because MCP deployments frequently connect models to multiple systems (repositor
 
 ### Impact:
 Exposure of authentication tokens can lead to:
--Unauthorized modifications to code, infrastructure-as-code (IaC) manifests, or production configuration.
--Unreviewed deployments and potential introduction of backdoors or vulnerabilities.
--Full environment control when privileges allow service account impersonation, creation of new credentials, or management of identity resources.
--Regulatory and compliance exposure due to uncontrolled data access or change history gaps.
--Amplified incident blast radius because agents often have automated, repeatable execution paths.
+- Unauthorized modifications to code, infrastructure-as-code (IaC) manifests, or production configuration.
+- Unreviewed deployments and potential introduction of backdoors or vulnerabilities.
+- Full environment control when privileges allow service account impersonation, creation of new credentials, or management of identity resources.
+- Regulatory and compliance exposure due to uncontrolled data access or change history gaps.
+- Amplified incident blast radius because agents often have automated, repeatable execution paths.
 
 
 ### How to Detect?
 Your MCP deployment may be vulnerable if any of the following are true:
--Permissions are modified manually in development or prod without automated change logs.
--Service/agent accounts are shared across teams or sessions (no per-agent identity).
--There is no enforced expiration for scopes or tokens.
--Ad-hoc testing changes are promoted to production without approval gates.
--There is limited visibility into which agent invoked which action (weak or missing attribution).
--No automated entitlement/permission review process exists.
+- Permissions are modified manually in development or prod without automated change logs.
+- Service/agent accounts are shared across teams or sessions (no per-agent identity).
+- There is no enforced expiration for scopes or tokens.
+- Ad-hoc testing changes are promoted to production without approval gates.
+- There is limited visibility into which agent invoked which action (weak or missing attribution).
+- No automated entitlement/permission review process exists.
 
 
 ### Remediation:
