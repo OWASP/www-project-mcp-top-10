@@ -2,7 +2,7 @@
 
 layout: col-sidebar
 title: OWASP MCP Top 10
-tags: example-tag
+tags: mcptopten
 level: 2
 type: documentation
 pitch: A very brief, one-line description of your project
