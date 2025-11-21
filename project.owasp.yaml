@@ -14,11 +14,12 @@ repositories:
     url: https://github.com/OWASP/www-project-mcp-top-10
     description: OWASP Foundation web repository
 tags:
+  - top10-tag
   - example-tag
+  - acknowledgments-tag
   - custom-tag-1
   - custom-tag-2
   - data
-  - top10
   - roadmap
   - news
   - acknowledgments
