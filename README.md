@@ -9,16 +9,16 @@
 As AI systems become increasingly integrated into software supply chains, enterprise applications, and security infrastructure, the need for structured, secure, and interpretable model interaction layers is paramount. The Model Context Protocol (MCP) is emerging as a framework to define the operational, contextual, and behavioral boundaries of AI models. However, with the power and flexibility of MCPs comes a new class of vulnerabilities and attack surfaces that remain underexplored. This OWASP Top 10 for MCP outlines the most critical security concerns arising in the lifecycle of MCP-enabled systems—spanning from model misbinding, context spoofing, and prompt-state manipulation to insecure memory references and covert channel abuse. These risks are amplified in scenarios involving agentic AI, model chaining, multi-modal orchestration, and dynamic role assignment. By mapping the top 10 MCP-related vulnerabilities and offering concrete recommendations for secure design, implementation, and auditing practices, this project aims to equip AI developers, ML engineers, and security practitioners with the insights necessary to build context-aware and attack-resilient AI systems. The OWASP MCP Top 10 will serve as a living document, evolving alongside the pace of AI model capability and protocol innovation—anchored in real-world threats, research findings, and industry feedback.
 
 ## Road Map
-* MCP01:2025 - [Token Mismanagement & Secret Exposure](2025/MCP01-2025-Token-Mismanagement&Secret-Exposure.md)
-* MCP02:2025 - [Privilege Escalation via Scope Creep](2025/MCP02-2025–Privilege-Escalation-via-Scope-Creep.md)
-* MCP03:2025 - [Tool Poisoning](2025/MCP03-2025–Tool-Poisoning.md)
-* MCP04:2025 - [Software Supply Chain Attacks & Dependency Tampering](2025/MCP04-2025–Software-Supply-Chain-Attacks&Dependency-Tampering.md)
-* MCP05:2025 - [Command Injection & Execution](2025/MCP05-2025–Command-Injection&Execution.md)
-* MCP06:2025 - [Prompt Injection via Contextual Payloads](2025/MCP06-2025–Prompt-InjectionviaContextual-Payloads.md)
-* MCP07:2025 - [Insufficient Authentication & Authorization](2025/MCP07-2025–Insufficient-Authentication&Authorization.md)
-* MCP08:2025 - [ Lack of Audit and Telemetry](2025/MCP08-2025–Lack-of-Audit-and-Telemetry.md)
-* MCP09:2025 - [Shadow MCP Servers](2025/MCP09-2025–Shadow-MCP-Servers.md)
-* MCP10:2025 - [Context Injection & Over-Sharing](2025/MCP10-2025–ContextInjection&OverSharing.md)
+* MCP01:2025 - [Token Mismanagement & Secret Exposure](2025/MCP01-2025-Token-Mismanagement&Secret-Exposure)
+* MCP02:2025 - [Privilege Escalation via Scope Creep](2025/MCP02-2025–Privilege-Escalation-via-Scope-Creep)
+* MCP03:2025 - [Tool Poisoning](2025/MCP03-2025–Tool-Poisoning)
+* MCP04:2025 - [Software Supply Chain Attacks & Dependency Tampering](2025/MCP04-2025–Software-Supply-Chain-Attacks&Dependency-Tampering)
+* MCP05:2025 - [Command Injection & Execution](2025/MCP05-2025–Command-Injection&Execution)
+* MCP06:2025 - [Prompt Injection via Contextual Payloads](2025/MCP06-2025–Prompt-InjectionviaContextual-Payloads)
+* MCP07:2025 - [Insufficient Authentication & Authorization](2025/MCP07-2025–Insufficient-Authentication&Authorization)
+* MCP08:2025 - [ Lack of Audit and Telemetry](2025/MCP08-2025–Lack-of-Audit-and-Telemetry)
+* MCP09:2025 - [Shadow MCP Servers](2025/MCP09-2025–Shadow-MCP-Servers)
+* MCP10:2025 - [Context Injection & Over-Sharing](2025/MCP10-2025–ContextInjection&OverSharing)
 
 ### Overview
 
