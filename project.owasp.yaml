@@ -11,7 +11,7 @@ leaders:
     github: lirantal
 level: 2
 name: OWASP MCP Top 10
-pitch: A very brief, one-line description of your project
+pitch: Best practices guide for securing MCP servers and clients.
 repositories:
   - name: www-project-mcp-top-10
     url: https://github.com/OWASP/www-project-mcp-top-10
