@@ -40,6 +40,9 @@ Folks helping in refine, format, and improve clarity, structure, and consistency
 Note: Our contributor table is generated from GitHub contribution activity. Details on how these numbers are collected can be found in the project README. We refresh the table manually, so if you don’t see your name yet, don’t worry  it may appear during the next update cycle!
 Every contribution matters from a single sentence to full sections — and helps strengthen the MCP Top 10. Thank you for helping the community grow! 
 
+[Name]() | [Twitter]() | [LinkedIn]()
+
+
 [email]: mailto:vandana.verma@owasp.org
 [linkedin]: https://www.linkedin.com/in/vandana-verma/
 [twitter]: https://x.com/InfosecVandana
