@@ -1,4 +1,8 @@
-## MCP01:2025 - Token Mismanagement & Secret Exposure
+---
+
+layout: col-sidebar
+title: "MCP01:2025 - Token Mismanagement & Secret Exposure"
+---
 
 ### Description:
 In MCP-based systems, tokens and credentials serve as the primary means of authentication and authorization between models, tools, and servers. Developers frequently mishandle these secrets, embedding them in configuration files, environment variables, prompt templates, or even allowing them to persist within model context memory.
