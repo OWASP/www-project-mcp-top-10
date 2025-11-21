@@ -24,12 +24,77 @@ Phase 2 – Community Review and Feedback
 Publish the draft in a public repository for the community to review.
 Inputs from the community
 
-Phase 3 – Beta Release and Pilot Testing
+Phase 3 – Beta Release and Pilot Testing - We are here right now
 Release a “beta” version of MCP Top 10.
 Gather feedback on usability and coverage.
 
+## Next Phase 
 Phase 4 – Final Release
 Incorporate feedback from pilot testing.
 
 Phase 5 – Continuous Improvement
 Periodically release updated versions
+
+---
+
+layout: col-sidebar
+title: OWASP Smart Contract Top 10
+tags: smartcontract
+level: 2
+type: documentation
+pitch: Welcome to the OWASP Top Ten for Smart Contracts
+
+---
+
+![OWASP Smart Contract Logo](assets/images/owasp-sctop10.png)
+
+
+## About the Smart Contract Top 10
+
+The OWASP Smart Contract Top 10 (2025) is a standard awareness document providing Web3 developers and security teams with insights into the top 10 vulnerabilities found in smart contracts.
+
+It serves as a reference to ensure that smart contracts are secured against the most critical weaknesses exploited or discovered in recent years. The **Smart Contract Top 10** can be used alongside other smart contract security projects to ensure comprehensive risk coverage. Visit [scs.owasp.org](https://scs.owasp.org/) for more details on OWASP Smart Contract Security Projects.
+
+## Changes
+
+
+![OWASP 2023 to 2025 Changes](assets/images/Mapping2023-2025.png)
+
+### Top 10
+
+* MCP01:2025 - [Token Mismanagement & Secret Exposure](2025/MCP01-2025-Token-Mismanagement&Secret-Exposure.md)
+* MCP02:2025 - [Privilege Escalation via Scope Creep](2025/MCP02-2025–Privilege-Escalation-via-Scope-Creep.md)
+* MCP03:2025 - [Tool Poisoning](2025/MCP03-2025–Tool-Poisoning.md)
+* MCP04:2025 - [Software Supply Chain Attacks & Dependency Tampering](2025/MCP04-2025–Software-Supply-Chain-Attacks&Dependency-Tampering.md)
+* MCP05:2025 - [Command Injection & Execution](2025/MCP05-2025–Command-Injection&Execution.md)
+* MCP06:2025 - [Prompt Injection via Contextual Payloads](2025/MCP06-2025–Prompt-InjectionviaContextual-Payloads.md)
+* MCP07:2025 - [Insufficient Authentication & Authorization](2025/MCP07-2025–Insufficient-Authentication&Authorization.md)
+* MCP08:2025 - [ Lack of Audit and Telemetry](2025/MCP08-2025–Lack-of-Audit-and-Telemetry.md)
+* MCP09:2025 - [Shadow MCP Servers](2025/MCP09-2025–Shadow-MCP-Servers.md)
+* MCP10:2025 - [Context Injection & Over-Sharing](2025/MCP10-2025–ContextInjection&OverSharing.md)
+
+### Overview
+
+| Title | Description |
+| -- | -- |
+| MCP01 - Token Mismanagement & Secret Exposure | Hard-coded credentials, long-lived tokens, and secrets stored in model memory or protocol logs can expose sensitive environments to unauthorized access. Attackers may retrieve these tokens through prompt injection, compromised context, or debug traces, leading to full compromise of connected systems. |
+| MCP02 - Temporary or loosely defined permissions within MCP servers often expand over time, granting agents excessive capabilities.
+An attacker exploiting weak scope enforcement can perform unintended actions such as repository modification, system control, or data exfiltration. |
+| MCP03 - Tool Poisoning | Tool poisoning occurs when an adversary compromises the tools, plugins, or their outputs that an AI model depends on - injecting malicious, misleading, or biased context to manipulate model behavior. |
+| MCP04 - Software Supply Chain Attacks & Dependency Tampering | A compromised dependency can alter agent behavior or introduce execution-level backdoors. |
+| MCP05 - Command Injection & Execution | Command injection occurs when an AI agent constructs and executes system commands, shell scripts, API calls, or code snippets using untrusted input whether from user prompts, retrieved context, or third-party data sources without proper validation or sanitization. |
+| MCP06 - Prompt Injection via Contextual Payloads | This risk is analogous to classic injection attacks (e.g., XSS, SQLi), but in the MCP world the “interpreter” is the model and the “payload” is text (or any content that becomes text after OCR/processing). Because models are designed to follow natural-language instructions, prompt injection attacks are both powerful and subtle. |
+| MCP07 -  Insufficient Authentication & Authorization | Inadequate authentication and authorization occur when MCP servers, tools, or agents fail to properly verify identities or enforce access controls during interactions. Since MCP ecosystems often involve multiple agents, users, and services exchanging data and executing actions, weak or missing identity validation exposes critical attack paths. |
+| MCP08 - Lack of Audit and Telemetry | Limited telemetry from MCP servers and agents impedes investigation and incident response. Maintain detailed logs of tool invocations, context changes, and user-agent interactions with immutable audit trails. |
+| MCP09 - Shadow MCP Servers | “Shadow MCP Servers” refer to unapproved or unsupervised deployments of Model Context Protocol instances that operate outside the organization’s formal security governance.Much like Shadow IT, these rogue MCP nodes are often spun up by developers, research teams, or data scientists for experimentation, testing, or convenience frequently using default credentials, permissive configurations, or unsecured APIs. |
+| MCP10 - Context Injection & Over-Sharing | In the Model Context Protocol (MCP), “context” represents the working memory that stores prompts, retrieved data, and intermediate outputs across agents or sessions. When context windows are shared, persistent, or insufficiently scoped, sensitive information from one task, user, or agent may be exposed to another. This phenomenon known as context over-sharing turns convenience into a liability.|
+
+## Data Sources
+
+## Licensing
+The OWASP MCP Top 10 document is licensed under the [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/), the Creative Commons
+Attribution-ShareAlike 4.0 license. Some rights reserved.
+
+
+## Project Leaders
+- [Vandana Verma Sehgal](mailto:vandana.verma@owasp.org) (Twitter: [@infosecvandana](https://x.com/Infosecvandana))
