@@ -40,16 +40,16 @@ Periodically release updated versions
 
 ### Top 10
 
-* MCP01:2025 - [Token Mismanagement & Secret Exposure](2025/MCP01-2025-Token-Mismanagement&Secret-Exposure.md)
-* MCP02:2025 - [Privilege Escalation via Scope Creep](2025/MCP02-2025–Privilege-Escalation-via-Scope-Creep.md)
-* MCP03:2025 - [Tool Poisoning](2025/MCP03-2025–Tool-Poisoning.md)
-* MCP04:2025 - [Software Supply Chain Attacks & Dependency Tampering](2025/MCP04-2025–Software-Supply-Chain-Attacks&Dependency-Tampering.md)
-* MCP05:2025 - [Command Injection & Execution](2025/MCP05-2025–Command-Injection&Execution.md)
-* MCP06:2025 - [Prompt Injection via Contextual Payloads](2025/MCP06-2025–Prompt-InjectionviaContextual-Payloads.md)
-* MCP07:2025 - [Insufficient Authentication & Authorization](2025/MCP07-2025–Insufficient-Authentication&Authorization.md)
-* MCP08:2025 - [ Lack of Audit and Telemetry](2025/MCP08-2025–Lack-of-Audit-and-Telemetry.md)
-* MCP09:2025 - [Shadow MCP Servers](2025/MCP09-2025–Shadow-MCP-Servers.md)
-* MCP10:2025 - [Context Injection & Over-Sharing](2025/MCP10-2025–ContextInjection&OverSharing.md)
+* MCP01:2025 - [Token Mismanagement & Secret Exposure](2025/MCP01-2025-Token-Mismanagement&Secret-Exposure)
+* MCP02:2025 - [Privilege Escalation via Scope Creep](2025/MCP02-2025–Privilege-Escalation-via-Scope-Creep)
+* MCP03:2025 - [Tool Poisoning](2025/MCP03-2025–Tool-Poisoning)
+* MCP04:2025 - [Software Supply Chain Attacks & Dependency Tampering](2025/MCP04-2025–Software-Supply-Chain-Attacks&Dependency-Tampering)
+* MCP05:2025 - [Command Injection & Execution](2025/MCP05-2025–Command-Injection&Execution)
+* MCP06:2025 - [Prompt Injection via Contextual Payloads](2025/MCP06-2025–Prompt-InjectionviaContextual-Payloads)
+* MCP07:2025 - [Insufficient Authentication & Authorization](2025/MCP07-2025–Insufficient-Authentication&Authorization)
+* MCP08:2025 - [ Lack of Audit and Telemetry](2025/MCP08-2025–Lack-of-Audit-and-Telemetry)
+* MCP09:2025 - [Shadow MCP Servers](2025/MCP09-2025–Shadow-MCP-Servers)
+* MCP10:2025 - [Context Injection & Over-Sharing](2025/MCP10-2025–ContextInjection&OverSharing)
 
 ### Overview
 
