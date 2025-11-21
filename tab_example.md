@@ -3,7 +3,7 @@ title: Top10
 layout:  null
 tab: true
 order: 1
-tags: top10-tag
+tags: example-tag
 ---
 
 ## OWASP Top 10 for Model Context Protocol version 0.1
