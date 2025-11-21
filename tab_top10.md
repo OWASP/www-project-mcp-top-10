@@ -8,7 +8,7 @@ tags: mcptopten
 
 ## OWASP Top 10 for Model Context Protocol version [v0.1]
 
-## MCP1:2025 – [Token Mismanagement & Secret Exposure](2025/MCP01-2025-Token-Mismanagement-and-Secret-Exposure.md)
+## MCP1:2025 – [Token Mismanagement & Secret Exposure](2025/MCP01-2025-Token-Mismanagement-and-Secret-Exposure)
 Hard-coded credentials, long-lived tokens, and secrets stored in model memory or protocol logs can expose sensitive environments to unauthorized access.Attackers may retrieve these tokens through prompt injection, compromised context, or debug traces, leading to full compromise of connected systems. Short-lived, scoped credentials and secret-scanning controls are essential to mitigate this risk.
 
 ## MCP2:2025 – [Privilege Escalation via Scope Creep](2025/MCP02-2025–Privilege-Escalation-via-Scope-Creep.md)
