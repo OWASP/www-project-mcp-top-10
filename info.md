@@ -2,15 +2,15 @@
 * [Incubator Project](#)
 * [Type of Project](#)
 * [Version 0.0.0](#)
-* [Builder](#)
-* [Breaker](#)
+* [Server](#)
+* [Client](#)
 
 ### Downloads or Social Links
 * [Download](#)
 * [Meetup](#)
 
 ### Code Repository
-* [repo](#)
+* [repo](https://github.com/OWASP/www-project-mcp-top-10)
 
 ### Change Log
 * [changes](#)
