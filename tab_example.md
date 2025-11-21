@@ -14,20 +14,20 @@ Hard-coded credentials, long-lived tokens, and secrets stored in model memory or
 ## MCP2:2025 – Privilege Escalation via Scope Creep
 Temporary or loosely defined permissions within MCP servers often expand over time, granting agents excessive capabilities. An attacker exploiting weak scope enforcement can perform unintended actions such as repository modification, system control, or data exfiltration. Enforce least-privilege design, automated scope expiry, and strict access reviews to prevent escalation.
 
-## MCP3:2025 – Insecure MCP Protocol Implementations
-Unverified or custom MCP server implementations frequently omit security validations such as authentication, schema enforcement, or command validation. This can result in remote code execution, unauthorized tool access, or schema manipulation. Adhering to secure implementation guidelines, version validation, and protocol conformance testing reduces these exposures.
+## MCP03:2025 – Tool Poisoning
+Tool poisoning occurs when an adversary compromises the tools, plugins, or their outputs that an AI model depends on - injecting malicious, misleading, or biased context to manipulate model behavior. This category encompasses several sub-techniques, including rug pulls (malicious updates to trusted tools), schema poisoning (corrupting interface definitions to mislead the model), and tool shadowing (introducing fake or duplicate tools to intercept or alter interactions).
 
 ## MCP4:2025 – Supply Chain & Dependency Tampering
 MCP ecosystems depend on open-source packages, connectors, and model-side plug-ins that may contain malicious or vulnerable components. A compromised dependency can alter agent behavior or introduce execution-level backdoors. Implement signed components, dependency monitoring, and provenance tracking for all MCP modules.
 
-## MCP5:2025 – Insecure Plugin Integrations Description MCP (Model Context Protocol) 
-MCP Environments often extend their functionality through plugins—modular components that expose new tools, APIs, or context sources to agents. These plugins share the same MCP session or context, enabling them to exchange data, access logs, and communicate with the agent through a unified interface. When multiple plugins operate within a shared context without isolation or access boundaries, data and execution flows can inadvertently overlap. A malicious or poorly designed plugin can monitor or intercept requests from others, extract sensitive data, or alter outputs, leading to cross-plugin data leakage, privilege escalation, or malicious code execution.
+## MCP5:2025 – Command Injection & Execution
+Command injection in MCP environments occurs when an AI agent constructs and executes system commands, shell scripts, API calls, or code snippets using untrusted input—whether from user prompts, retrieved context, or third-party data sources—without proper validation or sanitization.
 
 ## MCP6:2025 – Prompt Injection via Contextual Payloads
 This risk is analogous to classic injection attacks (e.g., XSS, SQLi), but in the MCP world the “interpreter” is the model and the “payload” is text (or any content that becomes text after OCR/processing). Because models are designed to follow natural-language instructions, prompt injection attacks are both powerful and subtle.
 
-## MCP7:2025 – Schema Poisoning
-Schema poisoning occurs when an adversary tampers with the contract or schema definitions that govern agent-to-tool interactions in an MCP ecosystem. Schemas define the shape, types, and semantics of requests and responses — effectively the “language” agents use to call tools. If an attacker can modify a schema (or its metadata) so that a benign-sounding operation maps to a destructive action, agents that trust and follow the schema may inadvertently execute dangerous commands.
+## MCP07:2025 – Insufficient Authentication & Authorization
+Inadequate authentication and authorization occur when MCP servers, tools, or agents fail to properly verify identities or enforce access controls during interactions. Since MCP ecosystems often involve multiple agents, users, and services exchanging data and executing actions, weak or missing identity validation exposes critical attack paths.
 
 ## MCP8:2025 – Lack of Audit and Telemetry
 Without comprehensive activity logging and real-time alerting, unauthorized actions or data access may go undetected.
