@@ -1,5 +1,4 @@
 audience:
-  - breaker
   - builder
   - defender
 leaders:
@@ -8,15 +7,13 @@ leaders:
     github: vermava
 level: 2
 name: OWASP MCP Top 10
-pitch: Best practices guide for securing MCP servers and clients.
+pitch: Welcome to the OWASP Top Ten for MCP
 repositories:
   - name: www-project-mcp-top-10
     url: https://github.com/OWASP/www-project-mcp-top-10
     description: OWASP Foundation web repository
 tags:
   - mcptopten
-  - acknowledgments
-  - top10
   - custom-tag-1
   - custom-tag-2
 type: documentation
