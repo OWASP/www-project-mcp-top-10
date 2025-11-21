@@ -14,43 +14,45 @@ Attackers monitoring shared logs or interacting with the same system context cou
 
 ### Impact:
 Exposure of authentication tokens can lead to:
--Complete environment compromise through API or infrastructure access.
--Unauthorized code modifications or repository tampering.
--Lateral movement across integrated services (CI/CD, cloud storage, issue trackers).
--Data exfiltration from vector databases or file stores associated with the MCP server.
+- Complete environment compromise through API or infrastructure access.
+- Unauthorized code modifications or repository tampering.
+- Lateral movement across integrated services (CI/CD, cloud storage, issue trackers).
+- Data exfiltration from vector databases or file stores associated with the MCP server.
 
 Because MCP-based systems often operate autonomously or on behalf of users, a leaked token can grant high-impact permissions without direct human intervention.
 
 ### How to Detect?
+
 Your MCP environment is likely vulnerable if:
--Tokens or API keys are hard-coded in MCP client, server, or tool configurations.
--Models or agents retain conversational memory that includes secrets.
--Logs, telemetry, or vector stores record full prompts or responses without redaction.
--Token lifetimes are longer than session duration or lack enforced rotation.
--The system relies on shared or static service accounts instead of user-scoped credentials.
+- Tokens or API keys are hard-coded in MCP client, server, or tool configurations.
+- Models or agents retain conversational memory that includes secrets.
+- Logs, telemetry, or vector stores record full prompts or responses without redaction.
+- Token lifetimes are longer than session duration or lack enforced rotation.
+- The system relies on shared or static service accounts instead of user-scoped credentials.
 
 Conduct internal audits to determine where credentials flow—across MCP clients, tools, model memory, and context caches.
 
 ### Remediation:
--Implement Secret Hygiene Controls
-    -Store secrets in secure vaults (e.g., HashiCorp Vault, AWS Secrets Manager).
-    -Use environment variable injection only at runtime, never at build time.
--Limit Token Lifetime and Scope
-    -Issue short-lived, scoped tokens aligned with least privilege principles.
-    -Require token renewal for every new MCP session.
-    -Bind tokens to the specific agent, tool, or session context.
--Enforce Context Isolation
-    -Prevent sensitive data persistence in model memory or context windows.
-    -Redact or sanitize inputs and outputs before logging.
-    -Use ephemeral contexts for operations involving credentials.
--Secure Context & Log Management
-    -Redact or mask secrets before writing to logs or telemetry.
-    -Store diagnostic traces in protected locations with strict access control.
-    -Rotate and invalidate all tokens immediately upon suspected exposure.
--Enforce Governance Controls
-    -Define organizational policies for credential lifecycle management.
-    -Regularly audit MCP configurations, server endpoints, and stored contexts.
-    -Use Hardware Security Modules (HSMs) or Secrets Managers (AWS Secrets Manager, HashiCorp Vault, etc.) for runtime injection.
+
+- Implement Secret Hygiene Controls
+    - Store secrets in secure vaults (e.g., HashiCorp Vault, AWS Secrets Manager).
+    - Use environment variable injection only at runtime, never at build time.
+- Limit Token Lifetime and Scope
+    - Issue short-lived, scoped tokens aligned with least privilege principles.
+    - Require token renewal for every new MCP session.
+    - Bind tokens to the specific agent, tool, or session context.
+- Enforce Context Isolation
+    - Prevent sensitive data persistence in model memory or context windows.
+    - Redact or sanitize inputs and outputs before logging.
+    - Use ephemeral contexts for operations involving credentials.
+- Secure Context & Log Management
+    - Redact or mask secrets before writing to logs or telemetry.
+    - Store diagnostic traces in protected locations with strict access control.
+    - Rotate and invalidate all tokens immediately upon suspected exposure.
+- Enforce Governance Controls
+    - Define organizational policies for credential lifecycle management.
+    - Regularly audit MCP configurations, server endpoints, and stored contexts.
+    - Use Hardware Security Modules (HSMs) or Secrets Managers (AWS Secrets Manager, HashiCorp Vault, etc.) for runtime injection.
 
 ### Example Attack Scenarios:
 
