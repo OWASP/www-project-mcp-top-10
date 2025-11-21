@@ -19,5 +19,10 @@ tags:
   - example-tag
   - custom-tag-1
   - custom-tag-2
+  - data
+  - top10
+  - roadmap
+  - news
+  - acknowledgments
 type: documentation
 website: https://owasp.org/www-project-mcp-top-10
