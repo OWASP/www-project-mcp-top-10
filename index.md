@@ -40,7 +40,7 @@ Periodically release updated versions
 
 ### Top 10
 
-* MCP01:2025 - [Token Mismanagement & Secret Exposure](2025/MCP01-2025-Token-Mismanagement&Secret-Exposure)
+* MCP01:2025 - [Token Mismanagement & Secret Exposure](2025/MCP01-2025-Token-Mismanagement-and-Secret-Exposure)
 * MCP02:2025 - [Privilege Escalation via Scope Creep](2025/MCP02-2025–Privilege-Escalation-via-Scope-Creep)
 * MCP03:2025 - [Tool Poisoning](2025/MCP03-2025–Tool-Poisoning)
 * MCP04:2025 - [Software Supply Chain Attacks & Dependency Tampering](2025/MCP04-2025–Software-Supply-Chain-Attacks&Dependency-Tampering)
