@@ -6,9 +6,6 @@ leaders:
   - name: Vandana Verma Sehgal
     email: vandana.verma@owasp.org
     github: vermava
-  - name: Liran Tal
-    email: vandana.verma@owasp.org
-    github: lirantal
 level: 2
 name: OWASP MCP Top 10
 pitch: Best practices guide for securing MCP servers and clients.
