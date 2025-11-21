@@ -3,7 +3,7 @@ title: Acknowledgments
 layout:  null
 tab: true
 order: 1
-tags: acknowledgments
+tags: acknowledgments-tag
 ---
 
 ## Lead
