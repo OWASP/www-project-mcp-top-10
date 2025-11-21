@@ -1,8 +1,9 @@
 ---
-title: Acknowledgments
-layout:  null
+title: Acknowledgements
+displaytext: Acknowledgements
+layout: null
 tab: true
-order: 2
+order: 3
 tags: example-tag
 ---
 
