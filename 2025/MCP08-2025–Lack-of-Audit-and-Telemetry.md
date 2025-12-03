@@ -111,7 +111,6 @@ Perform root-cause review and enforce mandatory logging for all MCP agents.
 ### References & Further Reading
 - abc
 
-###### Make your suggestions on Github - 
-https://github.com/OWASP/www-project-mcp-top-10/blob/main/2025/MCP08-2025%E2%80%93Lack-of-Audit-and-Telemetry.md
+#### [Make your suggestions on Github -](https://github.com/OWASP/www-project-mcp-top-10/blob/main/2025/MCP08-2025%E2%80%93Lack-of-Audit-and-Telemetry.md) 
 
 
