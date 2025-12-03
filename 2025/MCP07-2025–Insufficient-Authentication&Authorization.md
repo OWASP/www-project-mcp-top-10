@@ -36,7 +36,6 @@ You are likely exposed if any of the following apply:
 - Tokens or API keys are shared, static, or long-lived
 - Authorization decisions rely on client input or context hints rather than server-side checks
 - Tools or connectors don’t validate caller identity or scope before execution
-- Tools or connectors don’t validate caller identity or scope before execution
 - There is no role-based or attribute-based access control (RBAC / ABAC)
 - Access logs lack identity correlation between agent and user actions
 - Agents can reuse tokens or credentials issued to others
