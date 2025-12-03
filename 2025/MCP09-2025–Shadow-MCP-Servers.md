@@ -110,7 +110,8 @@ A rogue MCP pulls experimental data from an external partner API. The dataset co
 - abc
 - bcd
 
-###### Make your suggestion on Github - https://github.com/OWASP/www-project-mcp-top-10/edit/main/2025/MCP09-2025%E2%80%93Shadow-MCP-Servers.md
+###### Make your suggestion on Github - 
+https://github.com/OWASP/www-project-mcp-top-10/edit/main/2025/MCP09-2025%E2%80%93Shadow-MCP-Servers.md
 
 
 
