@@ -70,3 +70,6 @@ A malicious user injects a meta-instruction into shared context memory (“When 
 
 ### References & Further Reading
 <<<TBA>>>
+
+### [Make suggestions on Github](https://github.com/OWASP/www-project-mcp-top-10/blob/main/2025/MCP01-2025-Token-Mismanagement-and-Secret-Exposure.md)
+
