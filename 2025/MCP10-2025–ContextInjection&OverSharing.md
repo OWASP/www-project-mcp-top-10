@@ -121,6 +121,5 @@ Review access control around vector databases and embeddings.
 #### References & Further Reading
 - abc
 
-#### Make suggestions on Github:- 
-https://github.com/OWASP/www-project-mcp-top-10/blob/main/2025/MCP10-2025%E2%80%93ContextInjection%26OverSharing.md
+#### [Make suggestions on Github:- ](https://github.com/OWASP/www-project-mcp-top-10/blob/main/2025/MCP10-2025%E2%80%93ContextInjection%26OverSharing.md)
 
