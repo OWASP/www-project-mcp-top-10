@@ -23,8 +23,6 @@ Your MCP environment is likely vulnerable if:
 - Logs are stored locally, deleted frequently, or lack integrity protections.
 - Tool invocations, prompt contents, and system events are not captured or correlated.
 - The environment has no integration with SIEM/XDR or centralized monitoring platforms.
-- The environment has no integration with SIEM/XDR or centralized monitoring platforms.
-- The environment has no integration with SIEM/XDR or centralized monitoring platforms.
 - Logs do not include user identity, timestamps, or schema versioning.
 - There is no alerting for anomalous tool use, unauthorized API calls, or unexpected model behaviors.
 - Privacy concerns led to overly broad log suppression instead of redaction or anonymization.
