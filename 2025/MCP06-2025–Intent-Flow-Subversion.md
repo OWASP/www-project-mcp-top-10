@@ -19,7 +19,7 @@ The **Intent Flow** is the critical path where an agent translates a user’s hi
 ### Is the Application Vulnerable? (Checklist)
 Your MCP deployment is likely vulnerable if:
 *   The system lacks **Intent Alignment Validation**: It does not verify if the model's next planned tool call is still a logical step toward the *original* user goal.
-*   **Implicit Instruction Trust:** The agent treats text retrieved from MCP `resources/` as potential instructions rather than passive data.
+*   **Implicit Instruction Trust:** The agent treats text retrieved from MCP `resources/` or `tool outputs` as potential instructions rather than passive data.
 *   **Blind Planning:** The model generates a multi-step plan after reading external context without a "Human-in-the-Loop" or "Policy-as-Code" check on the plan's milestones.
 *   **Context Concentration:** System instructions, user intent, and untrusted MCP resources are all merged into a single "flat" prompt window, making them indistinguishable to the model.
 
