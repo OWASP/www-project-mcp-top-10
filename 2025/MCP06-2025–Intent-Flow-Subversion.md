@@ -49,7 +49,7 @@ Your MCP deployment is likely vulnerable if:
 *   **Remediation:** Immediately pause the agent's session, purge the context window, and require a human operator to "re-authenticate" the intent flow before resuming.
 
 ### References & Further Reading
-*   [OWASP Top 10 for Agentic Applications 2026 (ASI01: Agent Goal Hijack)](https://genai.owasp.org)
-*   [arXiv:2512.06556 - Securing the Model Context Protocol: Defending LLMs Against Tool Poisoning and Adversarial Attacks](https://arxiv.org/abs/2512.06556)
+*   https://invariantlabs.ai/blog/mcp-github-vulnerability
+*   https://developer.microsoft.com/blog/protecting-against-indirect-injection-attacks-mcp
 
 ### [Make suggestions on Github](https://github.com/OWASP/www-project-mcp-top-10/blob/main/2025/MCP06-2025%E2%80%93Prompt-InjectionviaContextual-Payloads.md)
