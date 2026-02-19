@@ -45,7 +45,7 @@ Periodically release updated versions
 * MCP03:2025 - [Tool Poisoning](2025/MCP03-2025–Tool-Poisoning)
 * MCP04:2025 - [Software Supply Chain Attacks & Dependency Tampering](2025/MCP04-2025–Software-Supply-Chain-Attacks&Dependency-Tampering)
 * MCP05:2025 - [Command Injection & Execution](2025/MCP05-2025–Command-Injection&Execution)
-* MCP06:2025 - [Prompt Injection via Contextual Payloads](2025/MCP06-2025–Prompt-InjectionviaContextual-Payloads)
+* MCP06:2025 - [Intent Flow Subversion](2025/MCP06-2025–Intent-Flow-Subversion)
 * MCP07:2025 - [Insufficient Authentication & Authorization](2025/MCP07-2025–Insufficient-Authentication&Authorization)
 * MCP08:2025 - [ Lack of Audit and Telemetry](2025/MCP08-2025–Lack-of-Audit-and-Telemetry)
 * MCP09:2025 - [Shadow MCP Servers](2025/MCP09-2025–Shadow-MCP-Servers)
@@ -60,7 +60,7 @@ Periodically release updated versions
 | MCP03 - Tool Poisoning | Tool poisoning occurs when an adversary compromises the tools, plugins, or their outputs that an AI model depends on - injecting malicious, misleading, or biased context to manipulate model behavior. |
 | MCP04 - Software Supply Chain Attacks & Dependency Tampering | A compromised dependency can alter agent behavior or introduce execution-level backdoors. |
 | MCP05 - Command Injection & Execution | Command injection occurs when an AI agent constructs and executes system commands, shell scripts, API calls, or code snippets using untrusted input whether from user prompts, retrieved context, or third-party data sources without proper validation or sanitization. |
-| MCP06 - Prompt Injection via Contextual Payloads | This risk is analogous to classic injection attacks (e.g., XSS, SQLi), but in the MCP world the “interpreter” is the model and the “payload” is text (or any content that becomes text after OCR/processing). Because models are designed to follow natural-language instructions, prompt injection attacks are both powerful and subtle. |
+| MCP06 - Intent Flow Subversion | The Model Context Protocol enables agents to retrieve complex context that can act as a secondary instruction channel. Subversion occurs when malicious instructions embedded in context hijack the "Intent Flow," steering the agent away from the user's original goal toward an attacker's objective. |
 | MCP07 -  Insufficient Authentication & Authorization | Inadequate authentication and authorization occur when MCP servers, tools, or agents fail to properly verify identities or enforce access controls during interactions. Since MCP ecosystems often involve multiple agents, users, and services exchanging data and executing actions, weak or missing identity validation exposes critical attack paths. |
 | MCP08 - Lack of Audit and Telemetry | Limited telemetry from MCP servers and agents impedes investigation and incident response. Maintain detailed logs of tool invocations, context changes, and user-agent interactions with immutable audit trails. |
 | MCP09 - Shadow MCP Servers | “Shadow MCP Servers” refer to unapproved or unsupervised deployments of Model Context Protocol instances that operate outside the organization’s formal security governance.Much like Shadow IT, these rogue MCP nodes are often spun up by developers, research teams, or data scientists for experimentation, testing, or convenience frequently using default credentials, permissive configurations, or unsecured APIs. |
