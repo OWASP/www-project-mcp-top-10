@@ -49,22 +49,23 @@ Your MCP environment may be vulnerable if:
 ### How to Prevent
 
 1. Signed Components & Provenance Verification
-Require cryptographic signing for:
-- SDKs
-- Plugins
-- Tool manifests
-- Container images
-- Validate signatures during install + startup
+   
+- Require cryptographic signing for:
+  - SDKs
+  - Plugins
+  - Tool manifests
+  - Container images
+  - Validate signatures during install + startup
 
 2. Build SBOM / CBOM Visibility
-Generate SBOM (software bill of materials) and CBOM (cryptographic bill of materials) snapshots for each MCP server + plugin package
-Store SBOM alongside deployments for auditing + incident response
 
-Track:
-- Versions
-- Hashes
-- Licenses
-- Provenance metadata
+- Generate SBOM (software bill of materials) and CBOM (cryptographic bill of materials) snapshots for each MCP server + plugin package
+- Store SBOM alongside deployments for auditing + incident response
+- Track:
+  - Versions
+  - Hashes
+  - Licenses
+  - Provenance metadata
 
 3. Version Pinning & Approved Registries
 - Pin component versions — avoid “latest”
@@ -77,7 +78,6 @@ Track:
 - Malicious indicators
 - Poisoned transitive dependencies
 
-
 5. Sandbox Third-Party Plugins
 - Run plugins in constrained environments (e.g., WASM, container isolation)
 - Restrict filesystem + network access
@@ -89,11 +89,11 @@ Track:
 
 ### Detection Guidance
 Look for:
-Hash/signature changes in installed packages
-Plugins making calls to unknown domains
-Silent installation of new dependencies
-Unauthorized schema or configuration diffs
-Sudden behavior drift in MCP agents
+- Hash/signature changes in installed packages
+- Plugins making calls to unknown domains
+- Silent installation of new dependencies
+- Unauthorized schema or configuration diffs
+- Sudden behavior drift in MCP agents
 
 ### Example Attack Scenarios
 
