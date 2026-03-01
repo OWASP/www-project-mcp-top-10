@@ -6,13 +6,13 @@ title: "MCP03:2025 - Tool Poisoning"
 ---
 
 ### Description
-Schema poisoning occurs when an adversary tampers with the contract or schema definitions that govern agent-to-tool interactions in an MCP ecosystem. Schemas define the shape, types, and semantics of requests and responses — effectively the “language” agents use to call tools. If an attacker can modify a schema (or its metadata) so that a benign-sounding operation maps to a destructive action, agents that trust and follow the schema may inadvertently execute dangerous commands. Similarly attackers can replace a legitimate tool with a malicious version, leveraging the trust established by the original tool to execute the attack, this is called the rug pull attack.
+Schema poisoning occurs when an adversary tampers with the contract or schema definitions that govern agent-to-tool interactions in an MCP ecosystem. Schemas define the shape, types, and semantics of requests and responses — effectively the “language” agents use to call tools. If an attacker can modify a schema (or its metadata) so that a benign-sounding operation maps to a destructive action, agents that trust and follow the schema may inadvertently execute dangerous commands. 
 
 Schema attacks are a supply-chain style compromise: the attacker doesn’t exploit a code bug directly, they change the contract so legitimate agents behave incorrectly while passing superficial validation.These attacks are particularly dangerous because they remain invisible to users while still being fully visible and actionable to AI models.
 
 ### Impact
 
-- Data loss or corruption: benign workflows cause irreversible deletion or alteration.
+- Data loss or corruption: access and exfliterate sensitive data, benign workflows cause irreversible deletion or alteration.
 - Privilege abuse: agents may gain unintended capabilities if schema fields map to higher-risk operations.
 - Silent policy bypass: validation checks that match schema constraints may be bypassed because the schema itself is malicious.
 - Widespread compromise: a single poisoned schema distributed across many agents/tenants can multiply the blast radius.
