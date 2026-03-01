@@ -80,7 +80,8 @@ If schemas are treated as configuration files that can be changed without formal
  Schemas served over unsecured channels are rewritten in transit by an attacker (or misconfigured proxy), altering operation verbs so that benign requests become destructive.
 References & Further Reading
 
-### References:- 
-- abc
+### References & Further Reading
+*   [https://invariantlabs.ai/blog/mcp-github-vulnerability](https://invariantlabs.ai/blog/mcp-security-notification-tool-poisoning-attacks)
+*   [https://developer.microsoft.com/blog/protecting-against-indirect-injection-attacks-mcp](https://developer.microsoft.com/blog/protecting-against-indirect-injection-attacks-mcp)
 
 ### [Make suggestions on Github](https://github.com/OWASP/www-project-mcp-top-10/blob/main/2025/MCP03-2025%E2%80%93Tool-Poisoning.md)
