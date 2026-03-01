@@ -98,7 +98,8 @@ Look for:
 ### Example Attack Scenarios
 
 #### Scenario 1 — Trojanized Plugin
-A popular open-source connector gains a malicious update. It silently exfiltrates customer support transcripts to an adversary-controlled endpoint.
+A popular open-source connector gains a malicious update. It silently exfiltrates customer support transcripts to an adversary-controlled endpoint. Attackers may also publish typo‑squatted packages that mimic the legitimate plugin’s name, tricking developers into installing the malicious version.
+
 
 #### Scenario 2 — Registry Compromise
 An MCP package registry is compromised and replaces specific versions of a library used for context ingestion. The modified library injects new instructions into shared context memory.
