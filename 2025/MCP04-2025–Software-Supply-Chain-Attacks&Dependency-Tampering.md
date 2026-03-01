@@ -74,9 +74,9 @@ Your MCP environment may be vulnerable if:
 
 4. Dependency Scanning
 - Apply SCA (software composition analysis) + code scanning tools to detect:
-- Known CVEs
-- Malicious indicators
-- Poisoned transitive dependencies
+   - Known CVEs
+   - Malicious indicators
+   - Poisoned transitive dependencies
 
 5. Sandbox Third-Party Plugins
 - Run plugins in constrained environments (e.g., WASM, container isolation)
