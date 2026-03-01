@@ -98,16 +98,18 @@ Look for:
 ### Example Attack Scenarios
 
 #### Scenario 1 — Trojanized Plugin
-A popular open-source connector gains a malicious update. It silently exfiltrates customer support transcripts to an adversary-controlled endpoint. Attackers may also publish typo‑squatted packages that mimic the legitimate plugin’s name, tricking developers into installing the malicious version.
+A popular open-source connector gains a malicious update. It silently exfiltrates customer support transcripts to an adversary-controlled endpoint. 
 
+#### Scenario 2 — Typo-squatted Plugin
+Attackers may also publish typo‑squatted plugins that mimic the legitimate plugin’s name, tricking developers into installing the malicious version.
 
-#### Scenario 2 — Registry Compromise
+#### Scenario 3 — Registry Compromise
 An MCP package registry is compromised and replaces specific versions of a library used for context ingestion. The modified library injects new instructions into shared context memory.
 
-#### Scenario 3 — Dependency Confusion
+#### Scenario 4 — Dependency Confusion
 An attacker publishes a dependency to a public registry with the same name as an internal MCP plugin. Because developers rely on default resolution behavior, their agents pull the attacker’s version giving attackers execution access.
 
-#### Scenario 4 — Build Pipeline Attack
+#### Scenario 5 — Build Pipeline Attack
 CI systems are compromised and append rogue instructions to MCP manifests, adding new privileged schema methods that call destructive APIs.
 
 ### References & Further Reading
