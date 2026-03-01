@@ -110,6 +110,8 @@ An attacker publishes a dependency to a public registry with the same name as an
 CI systems are compromised and append rogue instructions to MCP manifests, adding new privileged schema methods that call destructive APIs.
 
 ### References & Further Reading
+*   [https://genai.owasp.org/llmrisk/llm032025-supply-chain/](https://genai.owasp.org/llmrisk/llm032025-supply-chain/)
+*   [https://atlas.mitre.org/techniques/AML.T0010](https://atlas.mitre.org/techniques/AML.T0010)
 
 ### [Make suggestions on Github](https://github.com/OWASP/www-project-mcp-top-10/blob/main/2025/MCP04-2025%E2%80%93Software-Supply-Chain-Attacks%26Dependency-Tampering.md)
 
