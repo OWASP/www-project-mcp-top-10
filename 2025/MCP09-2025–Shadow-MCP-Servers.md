@@ -107,8 +107,12 @@ A rogue MCP pulls experimental data from an external partner API. The dataset co
 
 
 ### References & Further Reading
-- abc
-- bcd
+- [MCP Servers: The New Security Nightmare](https://equixly.com/blog/2025/03/29/mcp-server-new-security-nightmare/) — Analysis finding hundreds of MCP servers bound to 0.0.0.0 and exposed to the internet
+- [Systematic Analysis of MCP Security](https://arxiv.org/html/2508.12538v1) — Study analyzing 2,614 MCP implementations including unauthorized server deployments
+- [Seven MCP CVEs in One Month: The Complete Map](https://dev.to/kai_security_ai/seven-mcp-cves-in-one-month-the-complete-map-1am5) — CVE timeline showing the risk surface of unmonitored MCP servers
+- [MCP Security: The Current Situation](https://www.redhat.com/en/blog/mcp-security-current-situation) — Red Hat analysis of shadow server risks including 36.7% SSRF vulnerability rate
+- [MCP Specification — Security Best Practices](https://modelcontextprotocol.io/specification/draft/basic/security_best_practices) — Official guidance on server registration and discovery
+- [Securing the Model Context Protocol: Risks, Controls, and Governance](https://arxiv.org/pdf/2511.20920) — Governance framework addressing unauthorized server proliferation
 
 ###### [Make your suggestion on Github - ](https://github.com/OWASP/www-project-mcp-top-10/edit/main/2025/MCP09-2025%E2%80%93Shadow-MCP-Servers.md)
 

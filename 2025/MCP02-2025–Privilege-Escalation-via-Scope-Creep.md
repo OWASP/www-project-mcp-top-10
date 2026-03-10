@@ -72,4 +72,9 @@ Require human-in-the-loop approvals for non-routine privilege grants.
 
 
 ### References & Further Reading
-<<<TBA>>>
+- [MCP Specification — Security Best Practices](https://modelcontextprotocol.io/specification/draft/basic/security_best_practices) — Official guidance on principle of least privilege for MCP tools
+- [Microsoft & Anthropic MCP Servers at Risk of RCE, Cloud Takeovers](https://www.darkreading.com/application-security/microsoft-anthropic-mcp-servers-risk-takeovers) — Dark Reading analysis of privilege escalation via overly broad tool permissions
+- [Three Flaws in Anthropic MCP Git Server Enable File Access and Code Execution](https://thehackernews.com/2026/01/three-flaws-in-anthropic-mcp-git-server.html) — CVE-2025-68143, CVE-2025-68144, CVE-2025-68145: privilege escalation via path validation bypass
+- [Securing the Model Context Protocol: Risks, Controls, and Governance](https://arxiv.org/pdf/2511.20920) — Academic analysis of MCP threat models including scope creep
+- [MCP Servers: The New Security Nightmare](https://equixly.com/blog/2025/03/29/mcp-server-new-security-nightmare/) — Overview of privilege escalation risks in MCP deployments
+- [Model Context Protocol Security: Critical Vulnerabilities Every CISO Must Address](https://www.esentire.com/blog/model-context-protocol-security-critical-vulnerabilities-every-ciso-should-address-in-2025) — eSentire analysis of MCP privilege boundaries
