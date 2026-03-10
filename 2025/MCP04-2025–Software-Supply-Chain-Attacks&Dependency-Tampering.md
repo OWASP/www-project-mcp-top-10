@@ -110,6 +110,12 @@ An attacker publishes a dependency to a public registry with the same name as an
 CI systems are compromised and append rogue instructions to MCP manifests, adding new privileged schema methods that call destructive APIs.
 
 ### References & Further Reading
+- [Seven MCP CVEs in One Month: The Complete Map](https://dev.to/kai_security_ai/seven-mcp-cves-in-one-month-the-complete-map-1am5) — Timeline and analysis of rapid CVE discovery in MCP packages
+- [MCP Vulnerabilities Every Developer Should Know](https://composio.dev/blog/mcp-vulnerabilities-every-developer-should-know) — Overview including supply chain vectors in npx-based MCP servers
+- [Classic Vulnerabilities Meet AI Infrastructure: Why MCP Needs AppSec](https://www.endorlabs.com/learn/classic-vulnerabilities-meet-ai-infrastructure-why-mcp-needs-appsec) — Endor Labs mapping of dependency confusion and typosquatting risks to MCP
+- [MCP Security: The Current Situation](https://www.redhat.com/en/blog/mcp-security-current-situation) — Red Hat analysis including supply chain trust boundaries
+- [Introducing MCP-Scan: Protecting MCP with Invariant](https://invariantlabs.ai/blog/introducing-mcp-scan) — Tool version pinning and integrity verification for MCP servers
+- [MCP Specification — Security Best Practices](https://modelcontextprotocol.io/specification/draft/basic/security_best_practices) — Official guidance on server verification and transport security
 
 ### [Make suggestions on Github](https://github.com/OWASP/www-project-mcp-top-10/blob/main/2025/MCP04-2025%E2%80%93Software-Supply-Chain-Attacks%26Dependency-Tampering.md)
 

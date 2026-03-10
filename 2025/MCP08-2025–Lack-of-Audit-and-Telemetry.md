@@ -107,7 +107,12 @@ Perform root-cause review and enforce mandatory logging for all MCP agents.
 
 
 ### References & Further Reading
-- abc
+- [MCP Specification — Server Capabilities: Logging](https://modelcontextprotocol.io/specification/draft/basic/utilities/logging) — Official MCP logging capability specification
+- [MCP Specification — Security Best Practices](https://modelcontextprotocol.io/specification/draft/basic/security_best_practices) — Protocol-level guidance on audit trails and monitoring
+- [Context Engineering is the Key to Unlocking AI Agents in DevOps](https://devops.com/context-engineering-is-the-key-to-unlocking-ai-agents-in-devops-2/) — Observability patterns for agent systems including MCP telemetry
+- [Securing the Model Context Protocol: Risks, Controls, and Governance](https://arxiv.org/pdf/2511.20920) — Academic framework covering audit and telemetry requirements for MCP
+- [MCP Security: The Current Situation](https://www.redhat.com/en/blog/mcp-security-current-situation) — Red Hat analysis including observability gaps in MCP deployments
+- [Model Context Protocol Security: Critical Vulnerabilities Every CISO Must Address](https://www.esentire.com/blog/model-context-protocol-security-critical-vulnerabilities-every-ciso-should-address-in-2025) — eSentire overview of logging and detection gaps
 
 #### [Make your suggestions on Github -](https://github.com/OWASP/www-project-mcp-top-10/blob/main/2025/MCP08-2025%E2%80%93Lack-of-Audit-and-Telemetry.md) 
 

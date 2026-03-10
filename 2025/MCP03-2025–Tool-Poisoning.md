@@ -78,9 +78,13 @@ If schemas are treated as configuration files that can be changed without formal
 
 #### Scenario 4 — Man-in-the-Middle Rewriting Schemas in Transit
  Schemas served over unsecured channels are rewritten in transit by an attacker (or misconfigured proxy), altering operation verbs so that benign requests become destructive.
-References & Further Reading
-
-### References:- 
-- abc
+### References & Further Reading
+- [MCP Security Notification: Tool Poisoning Attacks](https://invariantlabs.ai/blog/mcp-security-notification-tool-poisoning-attacks) — Invariant Labs' original disclosure of tool poisoning via malicious descriptions
+- [GitHub MCP Exploited: Accessing Private Repositories via MCP](https://invariantlabs.ai/blog/mcp-github-vulnerability) — Real-world tool poisoning attack against GitHub MCP server
+- [MCP Injection Experiments](https://github.com/invariantlabs-ai/mcp-injection-experiments) — Reproducible code snippets demonstrating tool poisoning attacks
+- [Poison Everywhere: No Output from Your MCP Server Is Safe](https://www.cyberark.com/resources/threat-research-blog/poison-everywhere-no-output-from-your-mcp-server-is-safe) — CyberArk research on output-based poisoning vectors
+- [MCPTox: A Benchmark for Tool Poisoning Attack on Real-World MCP Servers](https://arxiv.org/html/2508.14925v1) — Academic benchmark for evaluating tool poisoning attacks
+- [We Built the Security Layer MCP Always Needed](https://blog.trailofbits.com/2025/07/28/we-built-the-security-layer-mcp-always-needed/) — Trail of Bits on tool description trust-on-first-use pinning
+- [Model Context Protocol Has Prompt Injection Security Problems](https://simonwillison.net/2025/Apr/9/mcp-prompt-injection/) — Simon Willison's analysis of tool poisoning as prompt injection
 
 ### [Make suggestions on Github](https://github.com/OWASP/www-project-mcp-top-10/blob/main/2025/MCP03-2025%E2%80%93Tool-Poisoning.md)
