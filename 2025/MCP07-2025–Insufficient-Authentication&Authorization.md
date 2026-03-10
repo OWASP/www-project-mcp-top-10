@@ -113,7 +113,13 @@ A malicious service registers as a fake MCP agent using an unprotected onboardin
 - Add temporary compensating controls: IP restrictions, manual approvals for sensitive actions.
 
 ### References & Further Reading
-- 
+- [MCP Specification — Security Best Practices](https://modelcontextprotocol.io/specification/draft/basic/security_best_practices) — Official guidance on authentication, authorization, and transport security
+- [MCP Security Vulnerabilities: How to Prevent Prompt Injection and Tool Poisoning](https://www.practical-devsecops.com/mcp-security-vulnerabilities/) — Analysis finding 38% of MCP servers lack authentication entirely
+- [Microsoft & Anthropic MCP Servers at Risk of RCE, Cloud Takeovers](https://www.darkreading.com/application-security/microsoft-anthropic-mcp-servers-risk-takeovers) — Authorization bypass leading to cloud account compromise
+- [Systematic Analysis of MCP Security](https://arxiv.org/html/2508.12538v1) — Academic analysis of authentication and authorization gaps across MCP implementations
+- [Securing the Model Context Protocol: Risks, Controls, and Governance](https://arxiv.org/pdf/2511.20920) — Framework for MCP authentication and governance controls
+- [Model Context Protocol Security: Critical Vulnerabilities Every CISO Must Address](https://www.esentire.com/blog/model-context-protocol-security-critical-vulnerabilities-every-ciso-should-address-in-2025) — eSentire analysis of MCP auth boundaries
+
 
 ### [Make suggestions on Github ](https://github.com/OWASP/www-project-mcp-top-10/blob/main/2025/MCP07-2025%E2%80%93Insufficient-Authentication%26Authorization.md)
 
