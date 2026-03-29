@@ -6,7 +6,7 @@ title: "MCP01:2025 - Token Mismanagement and Secret Exposure"
 ---
 
 ### Description:
-In MCP-based systems, tokens and credentials serve as the primary means of authentication and authorization between models, tools, and servers. Developers frequently mishandle these secrets, embedding them in configuration files, environment variables, prompt templates, or even allowing them to persist within model context memory.
+In MCP-based systems, tokens and credentials serve as the primary means of authentication and authorization between models, tools, and servers. Developers frequently mishandle these secrets, embedding them in configuration files, environment variables, prompt templates, or even allowing them to persist within model context memory. In some cases, credentials may also reside in internal documents that are inadvertently ingested into a RAG database, exposing them to adversaries.
 
 Since the Model Context Protocol enables long-lived sessions, stateful agents, and context persistence, these tokens can be inadvertently stored, indexed, or retrieved later through user prompts, system recalls, or log inspection. This results in a new category of exposure: contextual secret leakage, where the model or protocol layer itself becomes an unintentional secret repository.
 Attackers monitoring shared logs or interacting with the same system context could extract and misuse these credentials to access internal repositories, pipelines, or production APIs.
@@ -69,7 +69,7 @@ A malicious user injects a meta-instruction into shared context memory (“When 
 
 
 ### References & Further Reading
-<<<TBA>>>
+*   [https://www.backslash.security/blog/simulating-a-vulnerable-mcp-server-for-context-poisoning](https://www.backslash.security/blog/simulating-a-vulnerable-mcp-server-for-context-poisoning)
 
 ### [Make suggestions on Github](https://github.com/OWASP/www-project-mcp-top-10/blob/main/2025/MCP01-2025-Token-Mismanagement-and-Secret-Exposure.md)
 
