@@ -49,22 +49,23 @@ Your MCP environment may be vulnerable if:
 ### How to Prevent
 
 1. Signed Components & Provenance Verification
-Require cryptographic signing for:
-- SDKs
-- Plugins
-- Tool manifests
-- Container images
-- Validate signatures during install + startup
+   
+- Require cryptographic signing for:
+  - SDKs
+  - Plugins
+  - Tool manifests
+  - Container images
+  - Validate signatures during install + startup
 
 2. Build SBOM / CBOM Visibility
-Generate SBOM (software bill of materials) and CBOM (cryptographic bill of materials) snapshots for each MCP server + plugin package
-Store SBOM alongside deployments for auditing + incident response
 
-Track:
-- Versions
-- Hashes
-- Licenses
-- Provenance metadata
+- Generate SBOM (software bill of materials) and CBOM (cryptographic bill of materials) snapshots for each MCP server + plugin package
+- Store SBOM alongside deployments for auditing + incident response
+- Track:
+  - Versions
+  - Hashes
+  - Licenses
+  - Provenance metadata
 
 3. Version Pinning & Approved Registries
 - Pin component versions — avoid “latest”
@@ -73,10 +74,9 @@ Track:
 
 4. Dependency Scanning
 - Apply SCA (software composition analysis) + code scanning tools to detect:
-- Known CVEs
-- Malicious indicators
-- Poisoned transitive dependencies
-
+   - Known CVEs
+   - Malicious indicators
+   - Poisoned transitive dependencies
 
 5. Sandbox Third-Party Plugins
 - Run plugins in constrained environments (e.g., WASM, container isolation)
@@ -89,27 +89,32 @@ Track:
 
 ### Detection Guidance
 Look for:
-Hash/signature changes in installed packages
-Plugins making calls to unknown domains
-Silent installation of new dependencies
-Unauthorized schema or configuration diffs
-Sudden behavior drift in MCP agents
+- Hash/signature changes in installed packages
+- Plugins making calls to unknown domains
+- Silent installation of new dependencies
+- Unauthorized schema or configuration diffs
+- Sudden behavior drift in MCP agents
 
 ### Example Attack Scenarios
 
 #### Scenario 1 — Trojanized Plugin
-A popular open-source connector gains a malicious update. It silently exfiltrates customer support transcripts to an adversary-controlled endpoint.
+A popular open-source connector gains a malicious update. It silently exfiltrates customer support transcripts to an adversary-controlled endpoint. 
 
-#### Scenario 2 — Registry Compromise
+#### Scenario 2 — Typo-squatted Plugin
+Attackers may also publish typo‑squatted plugins that mimic the legitimate plugin’s name, tricking developers into installing the malicious version.
+
+#### Scenario 3 — Registry Compromise
 An MCP package registry is compromised and replaces specific versions of a library used for context ingestion. The modified library injects new instructions into shared context memory.
 
-#### Scenario 3 — Dependency Confusion
+#### Scenario 4 — Dependency Confusion
 An attacker publishes a dependency to a public registry with the same name as an internal MCP plugin. Because developers rely on default resolution behavior, their agents pull the attacker’s version giving attackers execution access.
 
-#### Scenario 4 — Build Pipeline Attack
+#### Scenario 5 — Build Pipeline Attack
 CI systems are compromised and append rogue instructions to MCP manifests, adding new privileged schema methods that call destructive APIs.
 
 ### References & Further Reading
+*   [https://genai.owasp.org/llmrisk/llm032025-supply-chain/](https://genai.owasp.org/llmrisk/llm032025-supply-chain/)
+*   [https://atlas.mitre.org/techniques/AML.T0010](https://atlas.mitre.org/techniques/AML.T0010)
 
 ### [Make suggestions on Github](https://github.com/OWASP/www-project-mcp-top-10/blob/main/2025/MCP04-2025%E2%80%93Software-Supply-Chain-Attacks%26Dependency-Tampering.md)
 

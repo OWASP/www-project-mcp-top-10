@@ -22,6 +22,7 @@ A seemingly benign command can be chained with malicious operators (&&, |, ;, ba
 
 ### Impact
 - Arbitrary code execution: Attackers gain the ability to run shell commands, scripts, or binaries on the host system with the agent's privileges.
+- System breakout: Attackers can break out of container or virtualized environment to gain access to the underlying host machine.
 - Data exfiltration: Sensitive files, databases, or environment variables can be read and transmitted to attacker-controlled endpoints.
 - System compromise: Installation of backdoors, rootkits, or persistent access mechanisms.
 - Privilege escalation: Exploiting SUID binaries, sudo misconfigurations, or service accounts to gain higher-level access.
@@ -59,20 +60,20 @@ Your MCP environment is likely vulnerable if:
 3. Sandbox All Tools
 - Run tools inside containers, micro-VMs, gVisor/Kata, or jailed users.
 - Enforce timeouts, resource limits, and read-only file systems.
-Isolate high-risk tools (file system, network, DB) into separate sandboxes.
+- Isolate high-risk tools (file system, network, DB) into separate sandboxes.
 
 4. Apply Least Privilege
-Run tools as non-root with minimal filesystem, API, and DB permissions.
-Prevent agents from accessing environment variables or secrets by default.
+- Run tools as non-root with minimal filesystem, API, and DB permissions.
+- Prevent agents from accessing environment variables or secrets by default.
 
 5. Strong Validation at Tool Boundaries
-Validate agent output against schemas before execution.
-Use parameterized SQL/APIs — never interpolate input.
-Reject unsafe patterns: chained commands, redirection, wildcards, command substitution.
+- Validate agent output against schemas before execution.
+- Use parameterized SQL/APIs — never interpolate input.
+- Reject unsafe patterns: chained commands, redirection, wildcards, command substitution.
 
 6. Add Human-in-the-Loop for Sensitive Actions
-Require approval for destructive, privileged, or system-modifying operations.
-Log all tool calls with full parameters and maintain immutable audit trails.
+- Require approval for destructive, privileged, or system-modifying operations.
+- Log all tool calls with full parameters and maintain immutable audit trails.
 
 ### Example Attack Scenarios
 
@@ -102,6 +103,6 @@ High resource consumption: CPU spikes, memory exhaustion, or disk I/O storms ind
 Failed validation attempts: Repeated rejections of inputs containing metacharacters or forbidden commands.
 
 ### References & Further Reading
-- abc
+*   [https://depthfirst.com/post/1-click-rce-to-steal-your-moltbot-data-and-keys](https://depthfirst.com/post/1-click-rce-to-steal-your-moltbot-data-and-keys)
 
 ### [Make suggestions on Github:- ](https://github.com/OWASP/www-project-mcp-top-10/blob/main/2025/MCP10-2025%E2%80%93ContextInjection%26OverSharing.md)

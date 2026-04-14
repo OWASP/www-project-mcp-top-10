@@ -113,7 +113,7 @@ A malicious service registers as a fake MCP agent using an unprotected onboardin
 - Add temporary compensating controls: IP restrictions, manual approvals for sensitive actions.
 
 ### References & Further Reading
-- 
+*   [https://hackernoon.com/ai-agents-dont-have-identities-and-thats-a-security-crisis](https://hackernoon.com/ai-agents-dont-have-identities-and-thats-a-security-crisis)
 
 ### [Make suggestions on Github ](https://github.com/OWASP/www-project-mcp-top-10/blob/main/2025/MCP07-2025%E2%80%93Insufficient-Authentication%26Authorization.md)
 

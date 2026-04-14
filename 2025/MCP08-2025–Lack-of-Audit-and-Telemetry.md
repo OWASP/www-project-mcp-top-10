@@ -107,7 +107,7 @@ Perform root-cause review and enforce mandatory logging for all MCP agents.
 
 
 ### References & Further Reading
-- abc
+*   [https://www.microsoft.com/en-us/security/blog/2026/03/18/observability-ai-systems-strengthening-visibility-proactive-risk-detection/](https://www.microsoft.com/en-us/security/blog/2026/03/18/observability-ai-systems-strengthening-visibility-proactive-risk-detection/)
 
 #### [Make your suggestions on Github -](https://github.com/OWASP/www-project-mcp-top-10/blob/main/2025/MCP08-2025%E2%80%93Lack-of-Audit-and-Telemetry.md) 
 
