@@ -13,7 +13,7 @@ Because MCP deployments frequently connect models to multiple systems (repositor
 
 
 ### Impact:
-Excessive privileges granted to AI agents can lead to:
+Exposure of authentication tokens can lead to:
 - Unauthorized modifications to code, infrastructure-as-code (IaC) manifests, or production configuration.
 - Unreviewed deployments and potential introduction of backdoors or vulnerabilities.
 - Full environment control when privileges allow service account impersonation, creation of new credentials, or management of identity resources.
@@ -36,31 +36,24 @@ Your MCP deployment may be vulnerable if any of the following are true:
 1. Least Privilege by Design
 Define minimal permissions required per agent before deployment. Document intended actions and map them to explicit scopes.
 Use fine-grained scopes (e.g., repo:write:branch=feature/* rather than repo:write).
-
 2. Policy-as-Code & Automated Enforcement
 Encode permission policies as code (Rego, OPA, IAM policies in Terraform) and enforce them in CI/CD pipelines.
 Reject configurations that violate policy rules during PR checks.
-
 3. Expiry-Based & Just-in-Time (JIT) Access
 Issue time-limited scopes/tokens for sessions. Require revalidation for long-running or recurring tasks.
 Use JIT elevation workflows with approval gates for any higher-risk action.
-
 4. Per-Agent Identity & Credential Binding
 Assign unique identities to agents and bind credentials to the agent and session context (no shared global service accounts).
 Use token binding or attestation to prevent credential reuse outside the intended session.
-
 5. Automated Entitlement Reviews & Drift Detection
 Periodically (and on change) run entitlement audits to find scope expansions.
 Alert on permission increases and requires a documented justification and approval.
-
 6. Runtime Controls & Guardrails
 Implement runtime policy enforcement (PDP/PIP) to block disallowed commands or tool calls.
 Apply action whitelists, safe execution sandboxes, and require multi-step confirmation for high-impact operations.
-
 7. Strong Change Management & Audit Trails
 All permission changes must be tracked, reviewed, and linked to a change request or ticket.
 Keep immutable, tamper-evident logs tying actions to agent identity and session.
-
 8. Separation of Duties & Approval Flows
 Separate the authority to grant permissions from the authority to deploy code or change production settings.
 Require human-in-the-loop approvals for non-routine privilege grants.
@@ -68,16 +61,20 @@ Require human-in-the-loop approvals for non-routine privilege grants.
 
 ### Example Attack Scenarios:
 
-#### Scenario 1 — Accidental Escalation → Supply-chain Compromise
+#### Scenario A — Accidental Escalation → Supply-chain Compromise
  A developer grants repo:write for a temporary test. Later, a malicious contributor creates a crafted PR that the over-privileged agent auto-merges into main. The merged code introduces a dependency that includes a malicious payload; CI deploys it automatically.
 
-#### Scenario 2 — Credential Harvesting + Escalation
+#### Scenario B — Credential Harvesting + Escalation
  An attacker discovers an agent's long-lived token in logs. Using that token, they grant the agent additional scopes via an exposed internal API. The agent then creates new service accounts and exfiltrates data to an external endpoint.
- 
-#### Scenario 3 — Automated Policy Bypass
+#### Scenario C — Automated Policy Bypass
  
  An organization allows unrestricted modifications to agent manifests via an internal tooling endpoint used by developers. An attacker uses social engineering to get temporary access to that tool and updates the manifest to include org:admin, enabling a full takeover.
 
 
 ### References & Further Reading
-*   [https://depthfirst.com/post/1-click-rce-to-steal-your-moltbot-data-and-keys](https://depthfirst.com/post/1-click-rce-to-steal-your-moltbot-data-and-keys)
+- [MCP Specification — Security Best Practices](https://modelcontextprotocol.io/specification/draft/basic/security_best_practices) — Official guidance on principle of least privilege for MCP tools
+- [Microsoft & Anthropic MCP Servers at Risk of RCE, Cloud Takeovers](https://www.darkreading.com/application-security/microsoft-anthropic-mcp-servers-risk-takeovers) — Dark Reading analysis of privilege escalation via overly broad tool permissions
+- [Three Flaws in Anthropic MCP Git Server Enable File Access and Code Execution](https://thehackernews.com/2026/01/three-flaws-in-anthropic-mcp-git-server.html) — CVE-2025-68143, CVE-2025-68144, CVE-2025-68145: privilege escalation via path validation bypass
+- [Securing the Model Context Protocol: Risks, Controls, and Governance](https://arxiv.org/pdf/2511.20920) — Academic analysis of MCP threat models including scope creep
+- [MCP Servers: The New Security Nightmare](https://equixly.com/blog/2025/03/29/mcp-server-new-security-nightmare/) — Overview of privilege escalation risks in MCP deployments
+- [Model Context Protocol Security: Critical Vulnerabilities Every CISO Must Address](https://www.esentire.com/blog/model-context-protocol-security-critical-vulnerabilities-every-ciso-should-address-in-2025) — eSentire analysis of MCP privilege boundaries

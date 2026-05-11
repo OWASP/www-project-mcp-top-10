@@ -55,7 +55,12 @@ Your MCP deployment is likely vulnerable if:
 *   **Subversion:** The agent "pivots" its plan from "Status Check" to "Emergency Data Export," fulfilling the attacker's goal under the guise of "saving data."
 
 ### References & Further Reading
-*   https://invariantlabs.ai/blog/mcp-github-vulnerability
-*   https://developer.microsoft.com/blog/protecting-against-indirect-injection-attacks-mcp
+- [GitHub MCP Exploited: Accessing Private Repositories via MCP](https://invariantlabs.ai/blog/mcp-github-vulnerability) — Invariant Labs disclosure of intent subversion via tool poisoning in GitHub MCP server
+- [Protecting Against Indirect Injection Attacks in MCP](https://developer.microsoft.com/blog/protecting-against-indirect-injection-attacks-mcp) — Microsoft's defense patterns for indirect prompt injection in MCP
+- [Model Context Protocol Has Prompt Injection Security Problems](https://simonwillison.net/2025/Apr/9/mcp-prompt-injection/) — Simon Willison's analysis of prompt injection as an inherent MCP risk
+- [Poison Everywhere: No Output from Your MCP Server Is Safe](https://www.cyberark.com/resources/threat-research-blog/poison-everywhere-no-output-from-your-mcp-server-is-safe) — CyberArk on output-based intent subversion vectors
+- [We Built the Security Layer MCP Always Needed](https://blog.trailofbits.com/2025/07/28/we-built-the-security-layer-mcp-always-needed/) — Trail of Bits on line jumping attacks and trust-on-first-use defenses
+- [mcp-context-protector](https://github.com/trailofbits/mcp-context-protector) — Trail of Bits' open-source security wrapper implementing LLM guardrails for MCP
+- [MCP Security Vulnerabilities: How to Prevent Prompt Injection and Tool Poisoning](https://www.practical-devsecops.com/mcp-security-vulnerabilities/) — Practical DevSecOps guide to intent flow defense
 
 ### [Make suggestions on Github](https://github.com/OWASP/www-project-mcp-top-10/blob/main/2025/MCP06-2025%E2%80%93Prompt-InjectionviaContextual-Payloads.md)

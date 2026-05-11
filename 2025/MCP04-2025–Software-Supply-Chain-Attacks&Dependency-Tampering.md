@@ -49,23 +49,22 @@ Your MCP environment may be vulnerable if:
 ### How to Prevent
 
 1. Signed Components & Provenance Verification
-   
-- Require cryptographic signing for:
-  - SDKs
-  - Plugins
-  - Tool manifests
-  - Container images
-  - Validate signatures during install + startup
+Require cryptographic signing for:
+- SDKs
+- Plugins
+- Tool manifests
+- Container images
+- Validate signatures during install + startup
 
 2. Build SBOM / CBOM Visibility
+Generate SBOM (software bill of materials) and CBOM (cryptographic bill of materials) snapshots for each MCP server + plugin package
+Store SBOM alongside deployments for auditing + incident response
 
-- Generate SBOM (software bill of materials) and CBOM (cryptographic bill of materials) snapshots for each MCP server + plugin package
-- Store SBOM alongside deployments for auditing + incident response
-- Track:
-  - Versions
-  - Hashes
-  - Licenses
-  - Provenance metadata
+Track:
+- Versions
+- Hashes
+- Licenses
+- Provenance metadata
 
 3. Version Pinning & Approved Registries
 - Pin component versions — avoid “latest”
@@ -74,9 +73,10 @@ Your MCP environment may be vulnerable if:
 
 4. Dependency Scanning
 - Apply SCA (software composition analysis) + code scanning tools to detect:
-   - Known CVEs
-   - Malicious indicators
-   - Poisoned transitive dependencies
+- Known CVEs
+- Malicious indicators
+- Poisoned transitive dependencies
+
 
 5. Sandbox Third-Party Plugins
 - Run plugins in constrained environments (e.g., WASM, container isolation)
@@ -89,11 +89,11 @@ Your MCP environment may be vulnerable if:
 
 ### Detection Guidance
 Look for:
-- Hash/signature changes in installed packages
-- Plugins making calls to unknown domains
-- Silent installation of new dependencies
-- Unauthorized schema or configuration diffs
-- Sudden behavior drift in MCP agents
+Hash/signature changes in installed packages
+Plugins making calls to unknown domains
+Silent installation of new dependencies
+Unauthorized schema or configuration diffs
+Sudden behavior drift in MCP agents
 
 ### Example Attack Scenarios
 

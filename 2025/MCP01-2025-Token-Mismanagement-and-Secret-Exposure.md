@@ -6,7 +6,7 @@ title: "MCP01:2025 - Token Mismanagement and Secret Exposure"
 ---
 
 ### Description:
-In MCP-based systems, tokens and credentials serve as the primary means of authentication and authorization between models, tools, and servers. Developers frequently mishandle these secrets, embedding them in configuration files, environment variables, prompt templates, or even allowing them to persist within model context memory. In some cases, credentials may also reside in internal documents that are inadvertently ingested into a RAG database, exposing them to adversaries.
+In MCP-based systems, tokens and credentials serve as the primary means of authentication and authorization between models, tools, and servers. Developers frequently mishandle these secrets, embedding them in configuration files, environment variables, prompt templates, or even allowing them to persist within model context memory.
 
 Since the Model Context Protocol enables long-lived sessions, stateful agents, and context persistence, these tokens can be inadvertently stored, indexed, or retrieved later through user prompts, system recalls, or log inspection. This results in a new category of exposure: contextual secret leakage, where the model or protocol layer itself becomes an unintentional secret repository.
 Attackers monitoring shared logs or interacting with the same system context could extract and misuse these credentials to access internal repositories, pipelines, or production APIs.
@@ -69,7 +69,12 @@ A malicious user injects a meta-instruction into shared context memory (“When 
 
 
 ### References & Further Reading
-*   [https://www.mindstudio.ai/blog/ai-agent-database-wipe-disaster-lessons](https://www.mindstudio.ai/blog/ai-agent-database-wipe-disaster-lessons)
+- [MCP Specification — Security Best Practices](https://modelcontextprotocol.io/specification/draft/basic/security_best_practices) — Official protocol-level security guidance
+- [Enhancing MCP Security: Combating Insecure Credential Storage Vulnerabilities](https://www.nox90.com/post/enhancing-mcp-security-combating-insecure-credential-storage-vulnerabilities) — Detailed analysis of credential storage weaknesses in MCP implementations
+- [Caught in the Hook: RCE and API Token Exfiltration Through Claude Code Project Files (CVE-2025-59536, CVE-2026-21852)](https://research.checkpoint.com/2026/rce-and-api-token-exfiltration-through-claude-code-project-files-cve-2025-59536/) — Check Point Research disclosure on credential theft via malicious MCP configurations
+- [MCP Security Vulnerabilities: How to Prevent Prompt Injection and Tool Poisoning Attacks](https://www.practical-devsecops.com/mcp-security-vulnerabilities/) — Practical DevSecOps overview including token exposure patterns
+- [Classic Vulnerabilities Meet AI Infrastructure: Why MCP Needs AppSec](https://www.endorlabs.com/learn/classic-vulnerabilities-meet-ai-infrastructure-why-mcp-needs-appsec) — Endor Labs analysis mapping traditional AppSec vulnerabilities to MCP
+- [MCP Security: The Current Situation](https://www.redhat.com/en/blog/mcp-security-current-situation) — Red Hat assessment of MCP security landscape
 
 ### [Make suggestions on Github](https://github.com/OWASP/www-project-mcp-top-10/blob/main/2025/MCP01-2025-Token-Mismanagement-and-Secret-Exposure.md)
 

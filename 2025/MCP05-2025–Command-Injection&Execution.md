@@ -22,7 +22,6 @@ A seemingly benign command can be chained with malicious operators (&&, |, ;, ba
 
 ### Impact
 - Arbitrary code execution: Attackers gain the ability to run shell commands, scripts, or binaries on the host system with the agent's privileges.
-- System breakout: Attackers can break out of container or virtualized environment to gain access to the underlying host machine.
 - Data exfiltration: Sensitive files, databases, or environment variables can be read and transmitted to attacker-controlled endpoints.
 - System compromise: Installation of backdoors, rootkits, or persistent access mechanisms.
 - Privilege escalation: Exploiting SUID binaries, sudo misconfigurations, or service accounts to gain higher-level access.
@@ -60,20 +59,20 @@ Your MCP environment is likely vulnerable if:
 3. Sandbox All Tools
 - Run tools inside containers, micro-VMs, gVisor/Kata, or jailed users.
 - Enforce timeouts, resource limits, and read-only file systems.
-- Isolate high-risk tools (file system, network, DB) into separate sandboxes.
+Isolate high-risk tools (file system, network, DB) into separate sandboxes.
 
 4. Apply Least Privilege
-- Run tools as non-root with minimal filesystem, API, and DB permissions.
-- Prevent agents from accessing environment variables or secrets by default.
+Run tools as non-root with minimal filesystem, API, and DB permissions.
+Prevent agents from accessing environment variables or secrets by default.
 
 5. Strong Validation at Tool Boundaries
-- Validate agent output against schemas before execution.
-- Use parameterized SQL/APIs — never interpolate input.
-- Reject unsafe patterns: chained commands, redirection, wildcards, command substitution.
+Validate agent output against schemas before execution.
+Use parameterized SQL/APIs — never interpolate input.
+Reject unsafe patterns: chained commands, redirection, wildcards, command substitution.
 
 6. Add Human-in-the-Loop for Sensitive Actions
-- Require approval for destructive, privileged, or system-modifying operations.
-- Log all tool calls with full parameters and maintain immutable audit trails.
+Require approval for destructive, privileged, or system-modifying operations.
+Log all tool calls with full parameters and maintain immutable audit trails.
 
 ### Example Attack Scenarios
 
@@ -103,6 +102,11 @@ High resource consumption: CPU spikes, memory exhaustion, or disk I/O storms ind
 Failed validation attempts: Repeated rejections of inputs containing metacharacters or forbidden commands.
 
 ### References & Further Reading
-*   [https://depthfirst.com/post/1-click-rce-to-steal-your-moltbot-data-and-keys](https://depthfirst.com/post/1-click-rce-to-steal-your-moltbot-data-and-keys)
+- [mcp-remote CVE-2025-6514 (CVSS 9.6)](https://composio.dev/blog/mcp-vulnerabilities-every-developer-should-know) — Arbitrary OS command execution when MCP clients connect to untrusted servers
+- [Three Flaws in Anthropic MCP Git Server (CVE-2025-68143, CVE-2025-68144, CVE-2025-68145)](https://thehackernews.com/2026/01/three-flaws-in-anthropic-mcp-git-server.html) — Path validation bypass enabling file access and code execution
+- [Systematic Analysis of MCP Security](https://arxiv.org/html/2508.12538v1) — Academic study finding 82% of MCP implementations use APIs prone to path traversal, 67% to code injection
+- [A Security Engineer's Guide to MCP](https://semgrep.dev/blog/2025/a-security-engineers-guide-to-mcp/) — Semgrep analysis of command injection patterns in MCP tool implementations
+- [MCP Servers: The New Security Nightmare](https://equixly.com/blog/2025/03/29/mcp-server-new-security-nightmare/) — Analysis of shell execution risks in MCP server deployments
+- [MCP Specification — Security Best Practices](https://modelcontextprotocol.io/specification/draft/basic/security_best_practices) — Official guidance on input validation and sandboxing
 
 ### [Make suggestions on Github:- ](https://github.com/OWASP/www-project-mcp-top-10/blob/main/2025/MCP10-2025%E2%80%93ContextInjection%26OverSharing.md)
