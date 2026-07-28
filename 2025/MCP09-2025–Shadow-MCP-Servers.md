@@ -21,7 +21,8 @@ You may have shadow MCP risk if:
 
 - Teams or developers can deploy MCP servers without central registration or security review.
 - There is no asset inventory or endpoint discovery process for internal APIs or services.
-- Network monitoring tools show unauthorized services running on unusual ports (e.g., 8000, 8080).
+- Network monitoring shows HTTP endpoints answering JSON-RPC POSTs with an `MCP-Protocol-Version` header, on hosts with no registered MCP instance.
+- Client configuration files on managed endpoints reference MCP servers that are not in the registry.
 - There is no automated MCP discovery scan across subnets or cloud environments.
 - MCP configurations are managed independently by individual teams (no unified baseline templates).
 - No governance or change management workflow exists for new AI infrastructure.
@@ -46,6 +47,8 @@ You may have shadow MCP risk if:
 - Publish secure-by-default MCP configuration templates for teams:
 - Enforce authentication and authorization (mTLS, OAuth).
 - Disable unauthenticated tool calls and external access by default.
+- Validate the `Origin` header on every connection and reject invalid origins with 403, to prevent DNS rebinding.
+- Bind local servers to 127.0.0.1 rather than 0.0.0.0.
 - Include preconfigured logging, rate-limits, and monitoring agents.
 - Block deployment of MCP instances that deviate from approved templates.
 
@@ -56,7 +59,7 @@ You may have shadow MCP risk if:
 
 5. Monitor for Anomalous or Unauthorized Behavior
 - Correlate telemetry to identify new MCP-related API traffic or agent activity from unknown hosts.
-- Set up alerts for endpoints responding on MCP-standard routes (/mcp, /agent/tools, /context).
+- Alert on request metadata rather than paths. The `MCP-Protocol-Version` header is required on every Streamable HTTP request and identifies both the traffic and the revision in use. The endpoint path is chosen by the server and cannot be assumed.
 - Track configuration drift and endpoint proliferation over time.
 
 6. Security Awareness & Developer Education
@@ -73,6 +76,11 @@ You may have shadow MCP risk if:
 - Include shadow MCP detection in threat-hunting playbooks.
 - Upon detection, trigger an incident response workflow to contain, image, and analyze the rogue server.
 - Track remediation metrics (mean time to discovery and closure).
+
+9. Inventory stdio Servers from Client Configuration, Not from the Network
+- The stdio transport launches the server as a subprocess of the client, so it exposes no port and no endpoint, and it will never appear in a network scan. Items 2 and 5 above cannot see it.
+- Collect and diff MCP client configuration files across managed endpoints, and treat an unregistered server command there the same as an unregistered listener.
+- Apply the registry requirement in item 1 to stdio servers explicitly. The specification recommends stdio for local use, so it is the default a shadow deployment is most likely to take.
 
 
 
@@ -91,7 +99,7 @@ A research team installs experimental plugins from GitHub into their shadow MCP.
 A rogue MCP pulls experimental data from an external partner API. The dataset contains manipulated entries that later propagate into model retraining pipelines, corrupting production AI outputs.
 
 #### Detection & Remediation
-- Discovery of unregistered hosts exposing /mcp or similar routes.
+- Discovery of unregistered hosts answering JSON-RPC POSTs with MCP request metadata headers, on any path.
 - Unknown certificates or self-signed certs in network scans.
 - Anomalous outbound traffic from R&D subnets.
 - Internal threat-hunting tools detecting MCP API patterns in unexpected zones.
