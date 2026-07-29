@@ -30,11 +30,12 @@ Phase 3 – Beta Release and Pilot Testing - We are here right now
 Release a “beta” version of MCP Top 10.
 Gather feedback on usability and coverage.
 
-## Next Phase 
 Phase 4 – Final Release
 Incorporate feedback from pilot testing.
 
-Phase 5 – Continuous Improvement
+## Next Phase 
+
+Phase 5 – Continuous Improvement & Next Release in October 2026
 Periodically release updated versions
 
 
