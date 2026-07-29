@@ -23,8 +23,8 @@ MCP ecosystems depend on open-source packages, connectors, and model-side plug-i
 ## MCP5:2025 – [Command Injection & Execution](2025/MCP05-2025–Command-Injection&Execution)
 Command injection in MCP environments occurs when an AI agent constructs and executes system commands, shell scripts, API calls, or code snippets using untrusted input—whether from user prompts, retrieved context, or third-party data sources—without proper validation or sanitization.
 
-## MCP6:2025 – [Prompt Injection via Contextual Payloads](2025/MCP06-2025–Prompt-InjectionviaContextual-Payloads)
-This risk is analogous to classic injection attacks (e.g., XSS, SQLi), but in the MCP world the “interpreter” is the model and the “payload” is text (or any content that becomes text after OCR/processing). Because models are designed to follow natural-language instructions, prompt injection attacks are both powerful and subtle.
+## MCP6:2025 – [Intent Flow Subversion](2025/MCP06-2025–Intent-Flow-Subversion)
+The Model Context Protocol enables agents to retrieve complex context that can act as a secondary instruction channel. Subversion occurs when malicious instructions embedded in context hijack the "Intent Flow," steering the agent away from the user's original goal toward an attacker's objective.
 
 ## MCP07:2025 – [Insufficient Authentication & Authorization](2025/MCP07-2025–Insufficient-Authentication&Authorization)
 Inadequate authentication and authorization occur when MCP servers, tools, or agents fail to properly verify identities or enforce access controls during interactions. Since MCP ecosystems often involve multiple agents, users, and services exchanging data and executing actions, weak or missing identity validation exposes critical attack paths.

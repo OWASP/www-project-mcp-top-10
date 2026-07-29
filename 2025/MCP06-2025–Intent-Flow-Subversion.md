@@ -63,4 +63,4 @@ Your MCP deployment is likely vulnerable if:
 - [mcp-context-protector](https://github.com/trailofbits/mcp-context-protector) — Trail of Bits' open-source security wrapper implementing LLM guardrails for MCP
 - [MCP Security Vulnerabilities: How to Prevent Prompt Injection and Tool Poisoning](https://www.practical-devsecops.com/mcp-security-vulnerabilities/) — Practical DevSecOps guide to intent flow defense
 
-### [Make suggestions on Github](https://github.com/OWASP/www-project-mcp-top-10/blob/main/2025/MCP06-2025%E2%80%93Prompt-InjectionviaContextual-Payloads.md)
+### [Make suggestions on Github](https://github.com/OWASP/www-project-mcp-top-10/blob/main/2025/MCP06-2025%E2%80%93Intent-Flow-Subversion.md)
