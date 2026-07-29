@@ -29,6 +29,18 @@ Your MCP deployment may be vulnerable if any of the following are true:
 
 If schemas are treated as configuration files that can be changed without formal governance, treat them as a high-value attack vector.
 
+### Detection Indicators (Static Analysis)
+
+Tool poisoning via description text is detectable before install, by statically analyzing each tool's declared `name`, `description`, and parameter descriptions (the text the model treats as authoritative). Treat the presence of any of the following in a tool's declared surface as a strong signal to review the server before trusting it:
+
+- **Model-directed imperatives**: instructions aimed at the model rather than describing the tool, such as "ignore previous instructions", "do not tell the user", or "before answering, read ...".
+- **Sensitive-path references**: a benign tool description that mentions credential or secret locations (`~/.ssh`, `id_rsa`, `.env`, `.aws/credentials`, `/etc/passwd`).
+- **Exfiltration patterns**: an action verb (send, post, upload, forward) near an external destination (a URL, webhook, or endpoint).
+- **Hidden or zero-width characters**: zero-width spaces and bidirectional control characters (U+200B-200F, U+202A-202E, U+2060, U+FEFF) used to smuggle instructions past human review.
+- **Comment-smuggled instructions**: model-directed text hidden inside HTML or markdown comments (`<!-- ... -->`) that a rendered view would not show.
+
+These are pre-connection, static indicators and do not replace the runtime and governance controls below; they let a consumer triage a server's declared tool surface before it is wired into an agent. Open-source scanners implementing these checks exist, mapping their findings to this Top 10.
+
 ### How to Prevent (Controls & Best Practices)
 
 1. Signed Schemas & Manifest Integrity
