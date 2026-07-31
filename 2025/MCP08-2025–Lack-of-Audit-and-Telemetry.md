@@ -106,6 +106,14 @@ Reconstruct minimal timeline from external system logs (firewalls, proxies).
 Perform root-cause review and enforce mandatory logging for all MCP agents.
 
 
+9. Capture Tamper-Evident Agent Decision Evidence
+   - Log not just what happened, but *why*: record the agent's goal, the tool call selected, the parameters chosen, and the rationale in a structured evidence record.
+   - Use the [Agent Evidence Protocol (AEP)](https://github.com/WasmAgent/wasmagent-protocol/tree/main/schemas/aep) schema to capture per-action evidence payloads: `action_type`, `capability_used`, `taint_labels`, `output_taint_labels`, and `recording_mode`.
+   - Bind evidence records to a session via a cryptographic envelope (e.g., DSSE/in-toto attestation) so individual log entries cannot be removed or reordered without detection.
+   - Emit AEP-structured evidence as OpenTelemetry spans using a purpose-built exporter (e.g., `@wasmagent/otel-exporter`) so agent decision logs flow into existing SIEM pipelines without a separate collector.
+   - Apply a `recording_mode` field (`full` / `summary` / `redacted`) to balance forensic fidelity with privacy requirements on a per-session basis.
+
+
 ### References & Further Reading
 - [MCP Specification — Server Capabilities: Logging](https://modelcontextprotocol.io/specification/draft/basic/utilities/logging) — Official MCP logging capability specification
 - [MCP Specification — Security Best Practices](https://modelcontextprotocol.io/specification/draft/basic/security_best_practices) — Protocol-level guidance on audit trails and monitoring
@@ -113,6 +121,13 @@ Perform root-cause review and enforce mandatory logging for all MCP agents.
 - [Securing the Model Context Protocol: Risks, Controls, and Governance](https://arxiv.org/pdf/2511.20920) — Academic framework covering audit and telemetry requirements for MCP
 - [MCP Security: The Current Situation](https://www.redhat.com/en/blog/mcp-security-current-situation) — Red Hat analysis including observability gaps in MCP deployments
 - [Model Context Protocol Security: Critical Vulnerabilities Every CISO Must Address](https://www.esentire.com/blog/model-context-protocol-security-critical-vulnerabilities-every-ciso-should-address-in-2025) — eSentire overview of logging and detection gaps
+- [Agent Evidence Protocol (AEP) Schema](https://github.com/WasmAgent/wasmagent-protocol/tree/main/schemas/aep) — Open schema for structured, per-action agent decision evidence with DSSE/in-toto attestation support
+- [AEP OpenTelemetry Exporter](https://www.npmjs.com/package/@wasmagent/otel-exporter) — Reference implementation emitting AEP evidence records as OTel spans, compatible with existing SIEM pipelines
+- [EU AI Act Article 19 — Automatically Generated Logs](https://artificialintelligenceact.eu/article/19/) — Mandatory logging obligations for high-risk AI systems (in force 2 August 2026)
+
+#### Scenario 5 – Agent Decision Repudiation
+A financial services firm uses an MCP agent to approve micro-transactions. After an incorrect batch approval causes losses, the responsible team claims the agent acted outside its configured policy. Because only tool invocations were logged (not the agent's internal decision rationale and capability scope at the time), no audit evidence exists to confirm or deny the claim. Implementing structured agent decision evidence — capturing the goal, selected tool, active capability manifest, and output taint labels per action — would have provided an immutable record enabling attribution and policy verification.
+
 
 #### [Make your suggestions on Github -](https://github.com/OWASP/www-project-mcp-top-10/blob/main/2025/MCP08-2025%E2%80%93Lack-of-Audit-and-Telemetry.md) 
 
