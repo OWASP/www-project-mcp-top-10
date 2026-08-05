@@ -59,7 +59,7 @@ You may have shadow MCP risk if:
 
 5. Monitor for Anomalous or Unauthorized Behavior
 - Correlate telemetry to identify new MCP-related API traffic or agent activity from unknown hosts.
-- Alert on request metadata rather than paths. The `MCP-Protocol-Version` header is required on every Streamable HTTP request and identifies both the traffic and the revision in use. The endpoint path is chosen by the server and cannot be assumed.
+- Alert on request metadata rather than paths. The `MCP-Protocol-Version` header is required on every Streamable HTTP request after initialization and identifies both the traffic and the revision in use. Its absence is not conclusive. The initialize request precedes version negotiation, and a server that receives no header assumes protocol version 2025-03-26. The endpoint path is chosen by the server and cannot be assumed.
 - Track configuration drift and endpoint proliferation over time.
 
 6. Security Awareness & Developer Education
@@ -80,7 +80,7 @@ You may have shadow MCP risk if:
 9. Inventory stdio Servers from Client Configuration, Not from the Network
 - The stdio transport launches the server as a subprocess of the client, so it exposes no port and no endpoint, and it will never appear in a network scan. Items 2 and 5 above cannot see it.
 - Collect and diff MCP client configuration files across managed endpoints, and treat an unregistered server command there the same as an unregistered listener.
-- Apply the registry requirement in item 1 to stdio servers explicitly. The specification recommends stdio for local use, so it is the default a shadow deployment is most likely to take.
+- Apply the registry requirement in item 1 to stdio servers explicitly. The specification says "Clients SHOULD support stdio whenever possible", so a shadow deployment can take this transport without ever touching the network.
 
 
 
@@ -123,6 +123,5 @@ A rogue MCP pulls experimental data from an external partner API. The dataset co
 - [Securing the Model Context Protocol: Risks, Controls, and Governance](https://arxiv.org/pdf/2511.20920) — Governance framework addressing unauthorized server proliferation
 
 ###### [Make your suggestion on Github - ](https://github.com/OWASP/www-project-mcp-top-10/edit/main/2025/MCP09-2025%E2%80%93Shadow-MCP-Servers.md)
-
 
 
