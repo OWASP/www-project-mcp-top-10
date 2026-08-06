@@ -59,7 +59,7 @@ You may have shadow MCP risk if:
 
 5. Monitor for Anomalous or Unauthorized Behavior
 - Correlate telemetry to identify new MCP-related API traffic or agent activity from unknown hosts.
-- Alert on request metadata rather than paths. The `MCP-Protocol-Version` header is required on every Streamable HTTP request after initialization and identifies both the traffic and the revision in use. Its absence is not conclusive. The initialize request precedes version negotiation, and a server that receives no header assumes protocol version 2025-03-26. The endpoint path is chosen by the server and cannot be assumed.
+- Alert on request metadata rather than paths. The `MCP-Protocol-Version` header is required on every Streamable HTTP request after initialization and identifies both the traffic and the revision in use. Its absence is not conclusive, because the initialize request precedes version negotiation and a client on 2025-03-26 may omit the header. The endpoint path is chosen by the server and cannot be assumed.
 - Track configuration drift and endpoint proliferation over time.
 
 6. Security Awareness & Developer Education
