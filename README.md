@@ -35,6 +35,12 @@ As AI systems become increasingly integrated into software supply chains, enterp
 | MCP09 - Shadow MCP Servers | “Shadow MCP Servers” refer to unapproved or unsupervised deployments of Model Context Protocol instances that operate outside the organization’s formal security governance.Much like Shadow IT, these rogue MCP nodes are often spun up by developers, research teams, or data scientists for experimentation, testing, or convenience frequently using default credentials, permissive configurations, or unsecured APIs. |
 | MCP10 - Context Injection & Over-Sharing | In the Model Context Protocol (MCP), “context” represents the working memory that stores prompts, retrieved data, and intermediate outputs across agents or sessions. When context windows are shared, persistent, or insufficiently scoped, sensitive information from one task, user, or agent may be exposed to another. This phenomenon known as context over-sharing turns convenience into a liability.|
 
+## Candidate Risks Under Review
+
+The following unnumbered proposal is available for community review. Its inclusion and placement in a future MCP Top 10 release have not been decided.
+
+* [Cross-Server Trust and Capability Manipulation](2025/candidates/Cross-Server-Trust-and-Capability-Manipulation.md)
+
 ## Data Sources
 --
 
