@@ -108,5 +108,6 @@ Failed validation attempts: Repeated rejections of inputs containing metacharact
 - [A Security Engineer's Guide to MCP](https://semgrep.dev/blog/2025/a-security-engineers-guide-to-mcp/) — Semgrep analysis of command injection patterns in MCP tool implementations
 - [MCP Servers: The New Security Nightmare](https://equixly.com/blog/2025/03/29/mcp-server-new-security-nightmare/) — Analysis of shell execution risks in MCP server deployments
 - [MCP Specification — Security Best Practices](https://modelcontextprotocol.io/specification/draft/basic/security_best_practices) — Official guidance on input validation and sandboxing
+- [SSRF Prevention and Detection for MCP Fetch/Scrape Tools](recommended-controls/SSRF-Prevention-Detection-MCP-Fetch-Tools.md) — Pre-flight URL validation pattern, redirect re-validation, and automated detection via mcp-safeguard
 
 ### [Make suggestions on Github:- ](https://github.com/OWASP/www-project-mcp-top-10/blob/main/2025/MCP10-2025%E2%80%93ContextInjection%26OverSharing.md)
