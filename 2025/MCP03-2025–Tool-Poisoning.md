@@ -72,7 +72,8 @@ These are pre-connection, static indicators and do not replace the runtime and g
 7. Independent Authorization Gate (Plan-vs-Authorize)
 - Separate the authority to *propose* an action (the model, which reads tool descriptions as trusted text) from the authority to *authorize* it (a deterministic gate outside the model). A poisoned description can steer what the model proposes, but it cannot address a gate that never treats the tool surface as instructions.
 - Treat any text that merely asserts approval ("the user approved this", "authorized") as data, not authorization. Bind approval to an out-of-band token tied to the specific request or session, so injected text cannot self-authorize.
-- Scan outbound arguments for secret-shaped payloads (credential patterns, key formats, known sensitive-file contents) and block egress at the gate. Containment then does not depend on the model resisting the injection — which benchmarks show it does not do reliably — so a successful injection still cannot exfiltrate.
+- Key the gate's authorization state to the (server identity, tool) pair rather than to the tool name alone. When a server renames a tool, a name-keyed prior is simply absent, so the renamed tool reaches the gate as a first sighting rather than as a mismatch, and a fresh attestation is minted instead of the gate raising. Treat a previously unseen tool name on a server that already has attested tools as unattested rather than as new, so that the absence of a prior is a state the gate holds an opinion about and not a default.
+- Scan outbound arguments for secret-shaped payloads (credential patterns, key formats, known sensitive-file contents) and block egress at the gate. Containment then rests on neither the model resisting the injection, which benchmarks show it does not do reliably, nor the detection layer in front of it recognising a rewritten payload, so a successful injection still cannot exfiltrate.
 
 ### Remediation
 
