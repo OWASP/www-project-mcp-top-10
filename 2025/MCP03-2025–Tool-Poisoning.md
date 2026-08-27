@@ -9,6 +9,8 @@ title: "MCP03:2025 - Tool Poisoning"
 Schema poisoning occurs when an adversary tampers with the contract or schema definitions that govern agent-to-tool interactions in an MCP ecosystem. Schemas define the shape, types, and semantics of requests and responses — effectively the “language” agents use to call tools. If an attacker can modify a schema (or its metadata) so that a benign-sounding operation maps to a destructive action, agents that trust and follow the schema may inadvertently execute dangerous commands.
 Schema attacks are a supply-chain style compromise: the attacker doesn’t exploit a code bug directly, they change the contract so legitimate agents behave incorrectly while passing superficial validation.
 
+Tool poisoning is also a confused-deputy attack at the manifest layer: an agent treats tool-manifest text — tool names, descriptions, and parameter documentation — as trusted context and may act on instructions hidden there. Because this text is delivered as part of the tool contract, a correctly delivered, validly signed description can still carry a malicious payload — signing and transport integrity prove a description’s origin, not the intent of its contents.
+
 ### Impact
 
 - Data loss or corruption: benign workflows cause irreversible deletion or alteration.
@@ -69,6 +71,12 @@ These are pre-connection, static indicators and do not replace the runtime and g
 - Require a “schema attestation” that binds the schema hash to a specific agent identity and session.
 - Implement runtime sanity checks: if an operation’s semantic impact exceeds a threshold (e.g., destructive verbs, data volume), pause execution and require human approval.
 
+7. Independent Authorization Gate (Plan-vs-Authorize)
+- Separate the authority to *propose* an action (the model, which reads tool descriptions as trusted text) from the authority to *authorize* it (a deterministic gate outside the model). A poisoned description can steer what the model proposes, but it cannot address a gate that never treats the tool surface as instructions.
+- Treat any text that merely asserts approval ("the user approved this", "authorized") as data, not authorization. Bind approval to an out-of-band token tied to the specific request or session, so injected text cannot self-authorize.
+- Key the gate's authorization state to the (server identity, tool) pair rather than to the tool name alone. When a server renames a tool, a name-keyed prior is simply absent, so the renamed tool reaches the gate as a first sighting rather than as a mismatch, and a fresh attestation is minted instead of the gate raising. Treat a previously unseen tool name on a server that already has attested tools as unattested rather than as new, so that the absence of a prior is a state the gate holds an opinion about and not a default.
+- Scan outbound arguments for secret-shaped payloads (credential patterns, key formats, known sensitive-file contents) and block egress at the gate. Containment then rests on neither the model resisting the injection, which benchmarks show it does not do reliably, nor the detection layer in front of it recognising a rewritten payload, so a successful injection still cannot exfiltrate.
+
 ### Remediation
 
 - Revoke or block the promoted schema version (remove from registry or mark as compromised).
@@ -98,5 +106,6 @@ These are pre-connection, static indicators and do not replace the runtime and g
 - [MCPTox: A Benchmark for Tool Poisoning Attack on Real-World MCP Servers](https://arxiv.org/html/2508.14925v1) — Academic benchmark for evaluating tool poisoning attacks
 - [We Built the Security Layer MCP Always Needed](https://blog.trailofbits.com/2025/07/28/we-built-the-security-layer-mcp-always-needed/) — Trail of Bits on tool description trust-on-first-use pinning
 - [Model Context Protocol Has Prompt Injection Security Problems](https://simonwillison.net/2025/Apr/9/mcp-prompt-injection/) — Simon Willison's analysis of tool poisoning as prompt injection
+- [leash-poc: MCP tool-poisoning contained by an independent policy gate](https://github.com/tonydzi/leash-poc) — Reproducible demonstration pairing the tool-poisoning attack with plan-vs-authorize containment (attack *and* defense), with adversarial tests on the gate
 
 ### [Make suggestions on Github](https://github.com/OWASP/www-project-mcp-top-10/blob/main/2025/MCP03-2025%E2%80%93Tool-Poisoning.md)
