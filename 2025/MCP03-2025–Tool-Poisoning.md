@@ -9,6 +9,8 @@ title: "MCP03:2025 - Tool Poisoning"
 Schema poisoning occurs when an adversary tampers with the contract or schema definitions that govern agent-to-tool interactions in an MCP ecosystem. Schemas define the shape, types, and semantics of requests and responses — effectively the “language” agents use to call tools. If an attacker can modify a schema (or its metadata) so that a benign-sounding operation maps to a destructive action, agents that trust and follow the schema may inadvertently execute dangerous commands.
 Schema attacks are a supply-chain style compromise: the attacker doesn’t exploit a code bug directly, they change the contract so legitimate agents behave incorrectly while passing superficial validation.
 
+Tool poisoning is also a confused-deputy attack at the manifest layer: an agent treats tool-manifest text — tool names, descriptions, and parameter documentation — as trusted context and may act on instructions hidden there. Because this text is delivered as part of the tool contract, a correctly delivered, validly signed description can still carry a malicious payload — signing and transport integrity prove a description’s origin, not the intent of its contents.
+
 ### Impact
 
 - Data loss or corruption: benign workflows cause irreversible deletion or alteration.
