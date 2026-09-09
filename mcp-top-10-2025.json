@@ -1,0 +1,98 @@
+{
+  "_comment": "Machine-readable index of the OWASP MCP Top 10 (2025). Generated from the repository tree at the commit named below; the entry titles are copied from each file's own front matter. Regenerate rather than hand-edit.",
+  "list": "OWASP MCP Top 10",
+  "year": "2025",
+  "status": "beta",
+  "source": {
+    "repository": "https://github.com/OWASP/www-project-mcp-top-10",
+    "commit": "165fe0f78ef104459237b4a8e0f6e78db9b02391",
+    "tree": "https://github.com/OWASP/www-project-mcp-top-10/tree/165fe0f78ef104459237b4a8e0f6e78db9b02391/2025",
+    "verified": "2026-09-09"
+  },
+  "notes": [
+    "Slugs are not derivable from titles. The separator after '2025' is a plain hyphen (U+002D) in MCP01 and an en dash (U+2013) in the other nine; four slugs contain a literal '&'; MCP10 runs 'ContextInjection' together. The 'url' field is already percent-encoded, 'slug' is the raw filename stem.",
+    "Titles carry the same split: MCP01-MCP03 use a hyphen between the number and the name, MCP04-MCP10 use an en dash."
+  ],
+  "entries": [
+    {
+      "id": "MCP01",
+      "title": "Token Mismanagement and Secret Exposure",
+      "titleAsPublished": "MCP01:2025 - Token Mismanagement and Secret Exposure",
+      "slug": "MCP01-2025-Token-Mismanagement-and-Secret-Exposure",
+      "file": "2025/MCP01-2025-Token-Mismanagement-and-Secret-Exposure.md",
+      "url": "https://owasp.org/www-project-mcp-top-10/2025/MCP01-2025-Token-Mismanagement-and-Secret-Exposure"
+    },
+    {
+      "id": "MCP02",
+      "title": "Privilege Escalation via Scope Creep",
+      "titleAsPublished": "MCP02:2025 - Privilege Escalation via Scope Creep",
+      "slug": "MCP02-2025–Privilege-Escalation-via-Scope-Creep",
+      "file": "2025/MCP02-2025–Privilege-Escalation-via-Scope-Creep.md",
+      "url": "https://owasp.org/www-project-mcp-top-10/2025/MCP02-2025%E2%80%93Privilege-Escalation-via-Scope-Creep"
+    },
+    {
+      "id": "MCP03",
+      "title": "Tool Poisoning",
+      "titleAsPublished": "MCP03:2025 - Tool Poisoning",
+      "slug": "MCP03-2025–Tool-Poisoning",
+      "file": "2025/MCP03-2025–Tool-Poisoning.md",
+      "url": "https://owasp.org/www-project-mcp-top-10/2025/MCP03-2025%E2%80%93Tool-Poisoning"
+    },
+    {
+      "id": "MCP04",
+      "title": "Software Supply Chain Attacks & Dependency Tampering",
+      "titleAsPublished": "MCP04:2025 – Software Supply Chain Attacks & Dependency Tampering",
+      "slug": "MCP04-2025–Software-Supply-Chain-Attacks&Dependency-Tampering",
+      "file": "2025/MCP04-2025–Software-Supply-Chain-Attacks&Dependency-Tampering.md",
+      "url": "https://owasp.org/www-project-mcp-top-10/2025/MCP04-2025%E2%80%93Software-Supply-Chain-Attacks&Dependency-Tampering"
+    },
+    {
+      "id": "MCP05",
+      "title": "Command Injection & Execution",
+      "titleAsPublished": "MCP05:2025 – Command Injection & Execution",
+      "slug": "MCP05-2025–Command-Injection&Execution",
+      "file": "2025/MCP05-2025–Command-Injection&Execution.md",
+      "url": "https://owasp.org/www-project-mcp-top-10/2025/MCP05-2025%E2%80%93Command-Injection&Execution"
+    },
+    {
+      "id": "MCP06",
+      "title": "Intent Flow Subversion",
+      "titleAsPublished": "MCP06:2025 – Intent Flow Subversion",
+      "slug": "MCP06-2025–Intent-Flow-Subversion",
+      "file": "2025/MCP06-2025–Intent-Flow-Subversion.md",
+      "url": "https://owasp.org/www-project-mcp-top-10/2025/MCP06-2025%E2%80%93Intent-Flow-Subversion"
+    },
+    {
+      "id": "MCP07",
+      "title": "Insufficient Authentication & Authorization",
+      "titleAsPublished": "MCP07:2025 – Insufficient Authentication & Authorization",
+      "slug": "MCP07-2025–Insufficient-Authentication&Authorization",
+      "file": "2025/MCP07-2025–Insufficient-Authentication&Authorization.md",
+      "url": "https://owasp.org/www-project-mcp-top-10/2025/MCP07-2025%E2%80%93Insufficient-Authentication&Authorization"
+    },
+    {
+      "id": "MCP08",
+      "title": "Lack of Audit and Telemetry",
+      "titleAsPublished": "MCP08:2025 – Lack of Audit and Telemetry",
+      "slug": "MCP08-2025–Lack-of-Audit-and-Telemetry",
+      "file": "2025/MCP08-2025–Lack-of-Audit-and-Telemetry.md",
+      "url": "https://owasp.org/www-project-mcp-top-10/2025/MCP08-2025%E2%80%93Lack-of-Audit-and-Telemetry"
+    },
+    {
+      "id": "MCP09",
+      "title": "Shadow MCP Servers",
+      "titleAsPublished": "MCP09:2025 – Shadow MCP Servers",
+      "slug": "MCP09-2025–Shadow-MCP-Servers",
+      "file": "2025/MCP09-2025–Shadow-MCP-Servers.md",
+      "url": "https://owasp.org/www-project-mcp-top-10/2025/MCP09-2025%E2%80%93Shadow-MCP-Servers"
+    },
+    {
+      "id": "MCP10",
+      "title": "Context Injection & Over-Sharing",
+      "titleAsPublished": "MCP10:2025 – Context Injection & Over-Sharing",
+      "slug": "MCP10-2025–ContextInjection&OverSharing",
+      "file": "2025/MCP10-2025–ContextInjection&OverSharing.md",
+      "url": "https://owasp.org/www-project-mcp-top-10/2025/MCP10-2025%E2%80%93ContextInjection&OverSharing"
+    }
+  ]
+}
