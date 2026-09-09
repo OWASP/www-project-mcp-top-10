@@ -1,0 +1,38 @@
+name: Validate machine-readable index
+
+on:
+  pull_request:
+    paths:
+      - '2025/**'
+      - 'mcp-top-10-2025.json'
+      - 'tools/build_index.py'
+      - '.github/workflows/validate-index.yaml'
+  push:
+    paths:
+      - '2025/**'
+      - 'mcp-top-10-2025.json'
+      - 'tools/build_index.py'
+      - '.github/workflows/validate-index.yaml'
+
+permissions:
+  contents: read
+
+concurrency:
+  cancel-in-progress: true
+  group: ${{ github.repository }}-${{ github.workflow }}-${{ github.ref }}
+
+jobs:
+  validate-index:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+        with:
+          # build_index.py reads the last commit that touched 2025/, so the
+          # history has to be there. A shallow clone would report the wrong
+          # commit or none at all.
+          fetch-depth: 0
+
+      - name: Check the index matches the entry files
+        run: python tools/build_index.py --check
