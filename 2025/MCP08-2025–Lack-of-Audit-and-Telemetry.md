@@ -76,6 +76,39 @@ Log all agent actions, tool invocations, schema versions, and context snapshots 
 - Test integrity checks — attempt to tamper with logs and validate detection alerts.
 - Implement audit trail self-verification, where logs cross-reference session data for consistency.
 
+9. Intent-Action Audit Ledger (Intent-Paired Logging)
+The controls above establish tamper-evident records of *what the agent did*. They do not capture whether the action matched the declared intent that authorized it. The Intent-Action Audit Ledger records *whether what the agent did matched what it was supposed to do* — the forensic distinction required for incident response, regulatory compliance, and liability determination.
+
+  Each Ledger entry is an append-only, cryptographically signed record containing:
+
+  ```json
+  {
+    "ledger_id": "<ulid>",
+    "session_id": "<session reference>",
+    "timestamp_utc": "<ISO 8601>",
+    "declared_intent": "<user's stated goal for this session/request>",
+    "agent_role": "<declared role and scope>",
+    "request_payload": "<sanitized MCP request>",
+    "tool_invoked": "<tool name and server>",
+    "validation_decision": "ALLOW | DENY | ESCALATE | MODIFY",
+    "validation_confidence": 0.94,
+    "policy_citations": ["<policy-id>"],
+    "execution_outcome": "success | error | blocked",
+    "intent_action_match": true,
+    "signature": "<HMAC-SHA256 of entry content>"
+  }
+  ```
+
+  Key properties:
+  - Append-only: entries cannot be modified after writing
+  - Cryptographically signed: each entry includes an HMAC that detects tampering
+  - Intent-paired: every action record includes the declared intent it was validated against
+  - OpenTelemetry-compatible: exports in standard format for SIEM integration
+
+  Regulatory relevance: EU AI Act Article 12 (record-keeping) requires high-risk AI systems to automatically log events sufficient to trace their operation and verify that they behave as intended. Action logs alone record what happened, not whether it matched intent. The Intent-Action Audit Ledger provides the pairing that makes that verification possible.
+
+  See also: [issue #31](https://github.com/OWASP/www-project-mcp-top-10/issues/31) for the full specification. The Ledger is the decision sink for the Agentic Intent Validation (AIV) control proposed under MCP06.
+
 
 ### Example Attack Scenarios
 
