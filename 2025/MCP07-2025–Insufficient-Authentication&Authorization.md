@@ -112,6 +112,12 @@ A malicious service registers as a fake MCP agent using an unprotected onboardin
 - Review and patch authorization middleware to enforce scope validation.
 - Add temporary compensating controls: IP restrictions, manual approvals for sensitive actions.
 
+### Recommended Controls
+
+Control patterns in this project that mitigate this risk:
+
+- [MCPS — Cryptographic Security Layer](recommended-controls/MCPS-Cryptographic-Security-Layer)
+
 ### References & Further Reading
 - [MCP Specification — Security Best Practices](https://modelcontextprotocol.io/specification/draft/basic/security_best_practices) — Official guidance on authentication, authorization, and transport security
 - [MCP Security Vulnerabilities: How to Prevent Prompt Injection and Tool Poisoning](https://www.practical-devsecops.com/mcp-security-vulnerabilities/) — Analysis finding 38% of MCP servers lack authentication entirely

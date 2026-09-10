@@ -118,6 +118,12 @@ Introduce TTL policies and auto-purge logic.
 Rotate keys and invalidate context stores if contamination is confirmed.
 Review access control around vector databases and embeddings.
 
+### Recommended Controls
+
+Control patterns in this project that mitigate this risk:
+
+- [Client-Side Tool Risk Gating](recommended-controls/Client-Side-Tool-Risk-Gating)
+
 ### References & Further Reading
 - [Effective Context Engineering for AI Agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) — Anthropic's guidance on managing what enters agent context windows
 - [Poison Everywhere: No Output from Your MCP Server Is Safe](https://www.cyberark.com/resources/threat-research-blog/poison-everywhere-no-output-from-your-mcp-server-is-safe) — CyberArk research on context contamination via tool outputs

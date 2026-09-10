@@ -71,6 +71,13 @@ Require human-in-the-loop approvals for non-routine privilege grants.
  An organization allows unrestricted modifications to agent manifests via an internal tooling endpoint used by developers. An attacker uses social engineering to get temporary access to that tool and updates the manifest to include org:admin, enabling a full takeover.
 
 
+### Recommended Controls
+
+Control patterns in this project that mitigate this risk:
+
+- [Client-Side Tool Risk Gating](recommended-controls/Client-Side-Tool-Risk-Gating)
+- [MCPS — Cryptographic Security Layer](recommended-controls/MCPS-Cryptographic-Security-Layer)
+
 ### References & Further Reading
 - [MCP Specification — Security Best Practices](https://modelcontextprotocol.io/specification/draft/basic/security_best_practices) — Official guidance on principle of least privilege for MCP tools
 - [Microsoft & Anthropic MCP Servers at Risk of RCE, Cloud Takeovers](https://www.darkreading.com/application-security/microsoft-anthropic-mcp-servers-risk-takeovers) — Dark Reading analysis of privilege escalation via overly broad tool permissions
