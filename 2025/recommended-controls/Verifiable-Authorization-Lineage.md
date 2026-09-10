@@ -94,6 +94,29 @@ The second sentence is the anti-evasion clause. Without it, one strongly-bound g
 unbacked ones inside the same tamper-evident log, and the record reads as a stronger claim than the
 evidence supports.
 
+**Three axes, kept separate.** Implementations repeatedly collapse these, and collapsing any two
+produces a scale on which unrelated weaknesses share a rung.
+
+| Axis | Question it answers | Values |
+|---|---|---|
+| **Attribution backing** | What stands behind the authorization? | operator assertion · signature by a key under the principal's control · qualified identity-proofed signature |
+| **Identity source** | How was the identity behind that key established? | self-asserted · organization-attested · notified eID · qualified certificate |
+| **Authority origin** | How was the authority conferred on the principal? | subject-consented · administrator-assigned · organization-wide · unknown |
+
+A consent can itself be asserted or signed, which is precisely why *authority origin* is not a rung on
+the backing scale. A device-key signature by a person whose identity was eID-proofed is still a
+principal-key signature on the backing axis — the identity source is reported **alongside** it, never
+folded in and never rounded up. And an administratively-created grant can carry a perfectly valid
+signature: strong backing, absent consent origin.
+
+**Reporting the floor.** Where a record covers several authorizations, report the weakest backing
+grade **and** an itemization of every grade observed. The floor alone loses the information that a
+strong authorization exists at all; the itemization alone permits the masking the floor exists to
+prevent. Both, or neither is useful.
+
+The requester/authorizer distinction — who asked versus who authorized — is a separate field again,
+not a value in any of these three.
+
 The motivation is empirical. Naming a principal in a credential is **not** evidence that the principal
 consented: on at least one major identity platform, a delegation created administratively — with no
 prompt ever shown to the named human — yields access tokens indistinguishable in every identity claim
