@@ -38,3 +38,11 @@ Limited telemetry from MCP servers and agents impedes investigation and incident
 
 ## MCP10:2025 – [Context Injection & Over-Sharing](2025/MCP10-2025–ContextInjection&OverSharing)
 In the Model Context Protocol (MCP), “context” represents the working memory that stores prompts, retrieved data, and intermediate outputs across agents or sessions. When context windows are shared, persistent, or insufficiently scoped, sensitive information from one task, user, or agent may be exposed to another. This phenomenon—known as context over-sharing—turns convenience into a liability.
+
+## Recommended Controls
+
+Control patterns contributed against these risks. Each states the risks it mitigates and,
+explicitly, the ones it does not.
+
+- [Client-Side Tool Risk Gating for MCP Hosts](2025/recommended-controls/Client-Side-Tool-Risk-Gating) — MCP02, MCP03, MCP06, MCP08, MCP09, MCP10
+- [MCPS — Cryptographic Security Layer for MCP](2025/recommended-controls/MCPS-Cryptographic-Security-Layer) — MCP01, MCP02, MCP03, MCP04, MCP06, MCP07, MCP08, MCP09

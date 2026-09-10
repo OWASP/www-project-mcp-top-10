@@ -106,6 +106,13 @@ Reconstruct minimal timeline from external system logs (firewalls, proxies).
 Perform root-cause review and enforce mandatory logging for all MCP agents.
 
 
+### Recommended Controls
+
+Control patterns in this project that mitigate this risk:
+
+- [Client-Side Tool Risk Gating](recommended-controls/Client-Side-Tool-Risk-Gating)
+- [MCPS — Cryptographic Security Layer](recommended-controls/MCPS-Cryptographic-Security-Layer)
+
 ### References & Further Reading
 - [MCP Specification — Server Capabilities: Logging](https://modelcontextprotocol.io/specification/draft/basic/utilities/logging) — Official MCP logging capability specification
 - [MCP Specification — Security Best Practices](https://modelcontextprotocol.io/specification/draft/basic/security_best_practices) — Protocol-level guidance on audit trails and monitoring

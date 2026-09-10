@@ -112,6 +112,12 @@ An attacker publishes a dependency to a public registry with the same name as an
 #### Scenario 5 — Build Pipeline Attack
 CI systems are compromised and append rogue instructions to MCP manifests, adding new privileged schema methods that call destructive APIs.
 
+### Recommended Controls
+
+Control patterns in this project that mitigate this risk:
+
+- [MCPS — Cryptographic Security Layer](recommended-controls/MCPS-Cryptographic-Security-Layer)
+
 ### References & Further Reading
 *   [https://genai.owasp.org/llmrisk/llm032025-supply-chain/](https://genai.owasp.org/llmrisk/llm032025-supply-chain/)
 *   [https://atlas.mitre.org/techniques/AML.T0010](https://atlas.mitre.org/techniques/AML.T0010)

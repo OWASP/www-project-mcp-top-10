@@ -90,6 +90,13 @@ These are pre-connection, static indicators and do not replace the runtime and g
 
 #### Scenario 4 — Man-in-the-Middle Rewriting Schemas in Transit
  Schemas served over unsecured channels are rewritten in transit by an attacker (or misconfigured proxy), altering operation verbs so that benign requests become destructive.
+### Recommended Controls
+
+Control patterns in this project that mitigate this risk:
+
+- [Client-Side Tool Risk Gating](recommended-controls/Client-Side-Tool-Risk-Gating)
+- [MCPS — Cryptographic Security Layer](recommended-controls/MCPS-Cryptographic-Security-Layer)
+
 ### References & Further Reading
 - [MCP Security Notification: Tool Poisoning Attacks](https://invariantlabs.ai/blog/mcp-security-notification-tool-poisoning-attacks) — Invariant Labs' original disclosure of tool poisoning via malicious descriptions
 - [GitHub MCP Exploited: Accessing Private Repositories via MCP](https://invariantlabs.ai/blog/mcp-github-vulnerability) — Real-world tool poisoning attack against GitHub MCP server

@@ -106,6 +106,13 @@ A rogue MCP pulls experimental data from an external partner API. The dataset co
 - Update network segmentation and discovery coverage to prevent recurrence.
 
 
+### Recommended Controls
+
+Control patterns in this project that mitigate this risk:
+
+- [Client-Side Tool Risk Gating](recommended-controls/Client-Side-Tool-Risk-Gating)
+- [MCPS — Cryptographic Security Layer](recommended-controls/MCPS-Cryptographic-Security-Layer)
+
 ### References & Further Reading
 - [MCP Servers: The New Security Nightmare](https://equixly.com/blog/2025/03/29/mcp-server-new-security-nightmare/) — Analysis finding hundreds of MCP servers bound to 0.0.0.0 and exposed to the internet
 - [Systematic Analysis of MCP Security](https://arxiv.org/html/2508.12538v1) — Study analyzing 2,614 MCP implementations including unauthorized server deployments
