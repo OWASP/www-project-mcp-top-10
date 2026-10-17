@@ -113,6 +113,7 @@ A rogue MCP pulls experimental data from an external partner API. The dataset co
 - [MCP Security: The Current Situation](https://www.redhat.com/en/blog/mcp-security-current-situation) — Red Hat analysis of shadow server risks including 36.7% SSRF vulnerability rate
 - [MCP Specification — Security Best Practices](https://modelcontextprotocol.io/specification/draft/basic/security_best_practices) — Official guidance on server registration and discovery
 - [Securing the Model Context Protocol: Risks, Controls, and Governance](https://arxiv.org/pdf/2511.20920) — Governance framework addressing unauthorized server proliferation
+- [Shadow MCP Servers: Why They're Hard to Track](https://webofmike.com/shadow-mcp-servers/): Config file paths for eight MCP clients, plus a read-only, stdlib Python scanner that fingerprints servers in both protocol eras (server/discover, then initialize, then GET /sse)
 
 ###### [Make your suggestion on Github - ](https://github.com/OWASP/www-project-mcp-top-10/edit/main/2025/MCP09-2025%E2%80%93Shadow-MCP-Servers.md)
 
