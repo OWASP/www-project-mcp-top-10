@@ -39,6 +39,9 @@ You are likely exposed if any of the following apply:
 - There is no role-based or attribute-based access control (RBAC / ABAC)
 - Access logs lack identity correlation between agent and user actions
 - Agents can reuse tokens or credentials issued to others
+- Session identifiers or state handles (e.g., `Mcp-Session-Id`) are accepted without verifying they belong to the authenticated caller
+- Session state identifiers or `requestState` are predictable, sequential, long-lived, or never invalidated
+- Approvals or confirmations carried in `requestState` can be reused across requests or users
 - No expiration or rotation policies for authentication credentials
 If you cannot determine “who did what, and with what authority”, your system is already vulnerable.
 
@@ -80,6 +83,19 @@ If you cannot determine “who did what, and with what authority”, your system
 - Prevent local testing servers from exposing endpoints publicly.
 - Enforce environment-specific credentials for dev/test/prod.
 
+8. Session Management & Transport Binding
+- Never treat possession of a session identifier or state handle as authentication.
+- Transport Session Binding: For stateful transports (e.g., Streamable HTTP or SSE), bind the transport session identifier (e.g., `Mcp-Session-Id`) to the authenticated principal, and reject it if presented by any other identity. 
+- On MCP versions that dropped protocol-level sessions (2026-07-28 onward), apply the same principal binding to any server issued state handle (e.g., a browser ID or workflow ID), and reject the handle if a different identity presents it.
+- Generate globally unique identifiers that are cryptographically secure; avoid predictable or sequential values.
+- Expire session identifiers, and provide session revocation support.
+
+9. Multi Round-Trip Requests State (`requestState`) Integrity
+- Treat `requestState` as untrusted, attacker-controlled input; it passes through the client and is echoed back on retry.
+- Protect its integrity and reject any state that fails verification. For sensitive operations, generate an opaque server side token so no authorization relevant data is exposed to or modifiable by the client.
+- Bind the state to the original authenticated principal, the originating request (tool/method name and a digest of its salient parameters). Reject state presented by a different user or on a non-matching request.
+- Give `requestState` a short expiry (TTL) and reject any state presented after it lapses, which narrows the window in which a captured or leaked value can be replayed.
+- Re-evaluate authorization on every retry; never treat the presence of valid state as proof the action is still permitted.
 
 
 ### Example Attack Scenarios
@@ -95,6 +111,13 @@ A malicious service registers as a fake MCP agent using an unprotected onboardin
 
 #### Scenario 4 – Inherited Context Tokens
  An assistant agent inherits the parent’s credentials through shared context, allowing it to execute privileged functions intended only for admins.
+
+#### Scenario 5 – Session Hijack
+An attacker obtains a valid session identifier (e.g., `Mcp-Session-Id`) from logs, a proxy, or by guessing a predictable value. Because the server does not bind the session to the authenticated principal, the attacker replays the identifier and impersonates the victim, invoking tools and reading data under the victim's authority.
+
+#### Scenario 6 – requestState Replay Attack
+A user confirms a low-risk tool call, and the server returns a `requestState` that carries the approval. Because the state is not bound to the original request, the attacker reuses the same confirmation to authorize other sensitive actions, or presents it as a different user, without a fresh prompt.
+
 
 ### Detection
 - Tokens reused across multiple agents or IP addresses.
@@ -119,6 +142,8 @@ A malicious service registers as a fake MCP agent using an unprotected onboardin
 - [Systematic Analysis of MCP Security](https://arxiv.org/html/2508.12538v1) — Academic analysis of authentication and authorization gaps across MCP implementations
 - [Securing the Model Context Protocol: Risks, Controls, and Governance](https://arxiv.org/pdf/2511.20920) — Framework for MCP authentication and governance controls
 - [Model Context Protocol Security: Critical Vulnerabilities Every CISO Must Address](https://www.esentire.com/blog/model-context-protocol-security-critical-vulnerabilities-every-ciso-should-address-in-2025) — eSentire analysis of MCP auth boundaries
+- [MCP Multi Round-Trip Requests — Security Considerations](https://modelcontextprotocol.io/specification/draft/basic/patterns/mrtr#security-considerations) — Integrity, binding, and replay requirements for `requestState`
+- [MCP Specification — Statelessness](https://modelcontextprotocol.io/specification/draft/basic#statelessness) — Defines the stateless per-request model: connections are not sessions, and cross-request state must be referenced by an explicit client-supplied identifier
 
 
 ### [Make suggestions on Github ](https://github.com/OWASP/www-project-mcp-top-10/blob/main/2025/MCP07-2025%E2%80%93Insufficient-Authentication%26Authorization.md)
