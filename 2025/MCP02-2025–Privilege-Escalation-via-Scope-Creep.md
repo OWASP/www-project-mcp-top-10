@@ -29,6 +29,8 @@ Your MCP deployment may be vulnerable if any of the following are true:
 - Ad-hoc testing changes are promoted to production without approval gates.
 - There is limited visibility into which agent invoked which action (weak or missing attribution).
 - No automated entitlement/permission review process exists.
+- An agent that can make payments has a limit per payment but nothing that limits its total spend per period, or relies on a cumulative limit that is documented but not actually enforced.
+- The amount, asset or recipient of a payment is set by the server at call time and approved automatically, so approving the tool call does not approve what is paid.
 
 
 ### Remediation:
@@ -51,6 +53,7 @@ Alert on permission increases and requires a documented justification and approv
 6. Runtime Controls & Guardrails
 Implement runtime policy enforcement (PDP/PIP) to block disallowed commands or tool calls.
 Apply action whitelists, safe execution sandboxes, and require multi-step confirmation for high-impact operations.
+For agents that can make payments, enforce a cumulative limit per period and per server in a ledger the agent cannot write. Count approved payments rather than settled ones, and check and update the ledger in one step so concurrent calls cannot both pass. Bind each approval to the amount, asset and recipient, and require a new approval when a server changes any of them.
 7. Strong Change Management & Audit Trails
 All permission changes must be tracked, reviewed, and linked to a change request or ticket.
 Keep immutable, tamper-evident logs tying actions to agent identity and session.
@@ -70,6 +73,9 @@ Require human-in-the-loop approvals for non-routine privilege grants.
  
  An organization allows unrestricted modifications to agent manifests via an internal tooling endpoint used by developers. An attacker uses social engineering to get temporary access to that tool and updates the manifest to include org:admin, enabling a full takeover.
 
+#### Scenario D — Spending Scope Set by the Counterparty
+ An agent may pay for MCP tools from a wallet, with a limit of $1 per payment and automatic approval below it. The price, asset and recipient of a paid tool come from the server's payment request at call time, not from the tool call the agent was allowed to make. A compromised server raises its price to $0.99, switches the recipient to a new address and returns output that keeps the agent calling it. Every payment passes the per-payment check and nothing counts the total, so the wallet is drained one call at a time while each call looks in scope. A daily cap that the wallet's documentation describes but its policy engine does not enforce fails the same way.
+
 
 ### References & Further Reading
 - [MCP Specification — Security Best Practices](https://modelcontextprotocol.io/specification/draft/basic/security_best_practices) — Official guidance on principle of least privilege for MCP tools
@@ -78,3 +84,4 @@ Require human-in-the-loop approvals for non-routine privilege grants.
 - [Securing the Model Context Protocol: Risks, Controls, and Governance](https://arxiv.org/pdf/2511.20920) — Academic analysis of MCP threat models including scope creep
 - [MCP Servers: The New Security Nightmare](https://equixly.com/blog/2025/03/29/mcp-server-new-security-nightmare/) — Overview of privilege escalation risks in MCP deployments
 - [Model Context Protocol Security: Critical Vulnerabilities Every CISO Must Address](https://www.esentire.com/blog/model-context-protocol-security-critical-vulnerabilities-every-ciso-should-address-in-2025) — eSentire analysis of MCP privilege boundaries
+- [x402 MCP client: configuration options](https://github.com/x402-foundation/x402/tree/main/typescript/packages/mcp#configuration-options) — An MCP payment client where the server sets the amount, asset, network and recipient, and the defaults approve any payment within a per-payment cap
