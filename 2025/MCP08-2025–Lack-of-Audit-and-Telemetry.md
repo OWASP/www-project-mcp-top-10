@@ -27,6 +27,8 @@ Your MCP environment is likely vulnerable if:
 - There is no alerting for anomalous tool use, unauthorized API calls, or unexpected model behaviors.
 - Privacy concerns led to overly broad log suppression instead of redaction or anonymization.
 - Audit retention policies are undefined or do not align with compliance requirements.
+- A change to a tool's definition (title, description, input or output schema, annotations) after it was first listed or approved leaves no record, so a silent redefinition (see MCP03) cannot be traced.
+- MCP server starts are not recorded together with where their configuration came from (user settings or a project/repository file), so a server launched by a cloned repository looks the same as an approved one (see MCP09).
 
 ### How to Prevent (Defensive Practices & Architecture Controls)
 1. Implement Structured, Tamper-Evident Logging
@@ -40,6 +42,9 @@ Log all agent actions, tool invocations, schema versions, and context snapshots 
   - parameters_used
   - response_summary
   - user_identity (if applicable)
+  - server_id
+  - config_source (user settings or project/repository file)
+  - tool_definition_hash (hash of the tool definition the client presented to the model for that call; see MCP03)
 
 2. Integrate with SIEM, XDR, or Centralized Monitoring
 - Forward MCP logs to enterprise SIEM systems (Splunk, ELK, Sentinel, Chronicle, etc.) for correlation.
@@ -75,6 +80,8 @@ Log all agent actions, tool invocations, schema versions, and context snapshots 
 - Conduct periodic audit drills to ensure investigators can reconstruct events from logs.
 - Test integrity checks — attempt to tamper with logs and validate detection alerts.
 - Implement audit trail self-verification, where logs cross-reference session data for consistency.
+- Periodically replay MCP server starts and tool definition changes in a test environment (a server started from a project/repository configuration; a tool definition change with and without `notifications/tools/list_changed`) and confirm that the client's default logs, not only opt-in telemetry, record each one.
+- Record tool definition changes as security events: keep the previous and new definition, or their hashes, and the time the client started using the new one.
 
 
 ### Example Attack Scenarios
@@ -97,6 +104,8 @@ Unexplained spikes in API billing, latency, or resource consumption
 Lack of log entries during active usage periods
 Incident response teams reporting “no data available” during investigations
 Sudden drop in telemetry ingestion volume
+A tool's definition hash changes with no matching re-approval
+An MCP server process starts with a command line that is not in the approved inventory
 
 #### Immediate Remediation
 Re-enable detailed logging at all MCP layers (agent, tool, and network).
@@ -107,7 +116,7 @@ Perform root-cause review and enforce mandatory logging for all MCP agents.
 
 
 ### References & Further Reading
-- [MCP Specification — Server Capabilities: Logging](https://modelcontextprotocol.io/specification/draft/basic/utilities/logging) — Official MCP logging capability specification
+- [MCP Specification — Logging (deprecated)](https://modelcontextprotocol.io/specification/2026-07-28/server/utilities/logging) — The protocol-level logging utility is deprecated as of the 2026-07-28 revision (SEP-2577); servers should log to `stderr` (stdio) or use OpenTelemetry
 - [MCP Specification — Security Best Practices](https://modelcontextprotocol.io/specification/draft/basic/security_best_practices) — Protocol-level guidance on audit trails and monitoring
 - [Context Engineering is the Key to Unlocking AI Agents in DevOps](https://devops.com/context-engineering-is-the-key-to-unlocking-ai-agents-in-devops-2/) — Observability patterns for agent systems including MCP telemetry
 - [Securing the Model Context Protocol: Risks, Controls, and Governance](https://arxiv.org/pdf/2511.20920) — Academic framework covering audit and telemetry requirements for MCP
