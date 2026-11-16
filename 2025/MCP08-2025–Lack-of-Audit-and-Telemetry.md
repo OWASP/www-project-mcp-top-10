@@ -125,4 +125,5 @@ Perform root-cause review and enforce mandatory logging for all MCP agents.
 - PAARA Connector Audit Kit — Open-source 20-test audit kit and 13-connector documentation audit dataset (server-side audit logging documented by 2 of 13 connectors) — https://github.com/vkktask/paara-connector-audit-kit
 - Kumar, V. (2026). PAARA: A Privacy-Aware, Accountability-Ready Architecture for agentic AI governance. SSRN. https://doi.org/10.2139/ssrn.6784078
 
-#### [Make your suggestions on Github -](https://github.com/OWASP/www-project-mcp-top-10/blob/main/2025/MCP08-2025%E2%80%93Lack-of-Audit-and-Telemetry.md)
+#### [Make your suggestions on Github -](https://github.com/OWASP/www-project-mcp-top-10/blob/main/2025/MCP08-2025%E2%80%93Lack-of-Audit-and-Telemetry.md) 
+ 
