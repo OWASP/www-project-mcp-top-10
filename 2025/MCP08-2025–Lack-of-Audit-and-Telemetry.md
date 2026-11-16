@@ -27,6 +27,9 @@ Your MCP environment is likely vulnerable if:
 - There is no alerting for anomalous tool use, unauthorized API calls, or unexpected model behaviors.
 - Privacy concerns led to overly broad log suppression instead of redaction or anonymization.
 - Audit retention policies are undefined or do not align with compliance requirements.
+- There is no way to verify, from the server's documentation or a test deployment, that a given tool call was logged — no published statement of what is logged per call, how long it is kept, or how an operator can obtain it.
+- A per-call audit record cannot be confirmed: the agent identity on whose behalf the call ran, the tool invoked, the arguments (with sensitive values redacted), and a timestamp are not all present and attributable.
+- Logs are client-side only, or their server-side retention and tamper-evidence cannot be confirmed.
 
 ### How to Prevent (Defensive Practices & Architecture Controls)
 1. Implement Structured, Tamper-Evident Logging
@@ -76,6 +79,12 @@ Log all agent actions, tool invocations, schema versions, and context snapshots 
 - Test integrity checks — attempt to tamper with logs and validate detection alerts.
 - Implement audit trail self-verification, where logs cross-reference session data for consistency.
 
+9. Publish a Logging Disclosure for Operators
+- Publish, in a stable and versioned location, what the server logs for each tool invocation: agent identity, tool invoked, arguments (with sensitive values redacted, not omitted), timestamp, and result — plus how long logs are retained and how an operator can obtain them.
+- State explicitly whether logging is server-side. A server that logs only at the client leaves the operator unable to reconstruct an agent's actions after the fact, and should say so.
+- Publish the result of a per-call audit test: place a test tool call, then confirm the record exists, is complete, and is tamper-evident. A published pass/fail result gives operators evidence rather than assurance.
+- In a documentation review of 13 public MCP and enterprise AI connectors (9 November 2026, 20-test open-source audit kit), only 2 of 13 documented server-side audit logging. The disclosure above is what would let an operator tell the difference before connecting. The review was documentation-only and single-coder; the audit kit and dataset are published openly for validation.
+
 
 ### Example Attack Scenarios
 
@@ -113,6 +122,8 @@ Perform root-cause review and enforce mandatory logging for all MCP agents.
 - [Securing the Model Context Protocol: Risks, Controls, and Governance](https://arxiv.org/pdf/2511.20920) — Academic framework covering audit and telemetry requirements for MCP
 - [MCP Security: The Current Situation](https://www.redhat.com/en/blog/mcp-security-current-situation) — Red Hat analysis including observability gaps in MCP deployments
 - [Model Context Protocol Security: Critical Vulnerabilities Every CISO Must Address](https://www.esentire.com/blog/model-context-protocol-security-critical-vulnerabilities-every-ciso-should-address-in-2025) — eSentire overview of logging and detection gaps
+- PAARA Connector Audit Kit — Open-source 20-test audit kit and 13-connector documentation audit dataset (server-side audit logging documented by 2 of 13 connectors) — https://github.com/vkktask/paara-connector-audit-kit
+- Kumar, V. (2026). PAARA: A Privacy-Aware, Accountability-Ready Architecture for agentic AI governance. SSRN. https://doi.org/10.2139/ssrn.6784078
 
 #### [Make your suggestions on Github -](https://github.com/OWASP/www-project-mcp-top-10/blob/main/2025/MCP08-2025%E2%80%93Lack-of-Audit-and-Telemetry.md) 
 
