@@ -27,6 +27,9 @@ You may have shadow MCP risk if:
 - No governance or change management workflow exists for new AI infrastructure.
 - Developers or data scientists use test environments connected to production data sources.
 - If your security team cannot list all active MCP servers in the environment, shadow deployments already exist.
+- External Certificate Transparency (CT) logs or passive DNS reveal internet-facing `mcp.*` or `agents.*` subdomains unknown to security operations.
+- Live external first-party MCP endpoints lack RFC 9728 OAuth Protected Resource Metadata (`/.well-known/oauth-protected-resource` or `WWW-Authenticate` `resource_metadata` headers), advertise overly broad OAuth scopes, or delegate authorization across undocumented external domains.
+- Unverified third-party hosted MCP proxies or agent-themed lookalike domains (`mcp-<brand>.*`, `<brand>-mcp.*`) advertise integrations using your brand outside corporate governance.
 
 ### How to Prevent (Defensive Strategy & Governance Controls)
 
@@ -41,6 +44,8 @@ You may have shadow MCP risk if:
 - Deploy passive network sensors to identify MCP traffic patterns (unique protocol identifiers, routes).
 - Integrate discovery results with asset inventories and vulnerability management platforms.
 - Automate shadow MCP detection scans weekly with alerts to the security operations team.
+- Supplement internal network scanning with passive External Attack Surface Management (EASM): monitor Certificate Transparency (CT) logs and TLS SANs for `mcp.*` and `agents.*` hostnames, verify apex DNSSEC (`AD=true`) and emerging IETF DNS-AID (`_agent`/`_mcp` `SVCB`) posture, and validate RFC 9728 (`/.well-known/oauth-protected-resource`) metadata and least-privilege OAuth scopes on every live external MCP endpoint.
+- Monitor public MCP registries and agent-themed lookalike domains passively to distinguish sanctioned first-party servers from unverified third-party hosted proxies, active lookalike endpoints, and phishing-warning lookalike domains.
 
 3. Define Baseline Configuration Templates
 - Publish secure-by-default MCP configuration templates for teams:
@@ -96,6 +101,9 @@ A rogue MCP pulls experimental data from an external partner API. The dataset co
 - Anomalous outbound traffic from R&D subnets.
 - Internal threat-hunting tools detecting MCP API patterns in unexpected zones.
 - Agents invoking unknown or duplicate MCP endpoints.
+- External CT log certificates issued for uninventoried `mcp.*`, `agent.*`, or `agents.*` subdomains under corporate or verified sibling domains.
+- Live internet-facing MCP endpoints failing to serve RFC 9728 (`/.well-known/oauth-protected-resource`) metadata, advertising overly broad/wildcard OAuth scopes, or exhibiting undocumented cross-domain OAuth/discovery drift.
+- Unverified third-party hosted MCP proxies claiming the organization's brand in public registries, active lookalike domains responding on `/mcp` or `/.well-known/mcp.json`, or agent-themed lookalike domains returning HTTP 403/451 third-party phishing warning interstitials.
 
 #### Immediate Remediation Steps
 - Contain the detected shadow MCP (disable network access, snapshot for forensics).

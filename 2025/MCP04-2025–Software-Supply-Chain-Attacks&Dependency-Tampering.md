@@ -45,6 +45,10 @@ Your MCP environment may be vulnerable if:
 - Vendors/maintainers have no formal security process
 - Open-source components are directly modified and redistributed
 - Plugin code is allowed to perform network calls without review
+- Your organization has no verified reverse-DNS entry in the Official MCP Registry while unverified third-party packages or hosted proxies claim your brand name (*Official Registry Vacuum*)
+- Developers or autonomous agents install unverified npm/PyPI MCP packages maintained by personal/free-email accounts lacking organizational domain provenance (or treat self-asserted `homepage` links as proof of first-party ownership)
+- Remote MCP client configurations permit third-party hosted proxies or URL templates that embed API keys or bearer tokens directly inside URL path segments
+- Unscoped community MCP packages invoke unverified `postinstall` binary downloads, shadow unrelated CLI `bin` names, or occupy dormant namespace-squat placeholders (`coming-soon` stubs)
 
 ### How to Prevent
 
@@ -87,6 +91,12 @@ Track:
 - Require suppliers to provide signed attestations
 - Review open-source maintainers’ security maturity
 
+7. External Brand-Namespace Provenance & Registry Claiming
+- Claim your organization's reverse-DNS namespace (e.g., `com.example/*`) in the Official MCP Registry (`registry.modelcontextprotocol.io`) or publish a canonical security notice specifying approved first-party MCP servers
+- Publish official MCP packages strictly under verified organization scopes (`@example/*`) with OIDC Trusted Publishers (npm/PyPI) rather than individual or free-email maintainer accounts; do not rely on self-asserted `homepage` metadata as provenance proof
+- Enforce an enterprise MCP client allowlist pinned to verified first-party server URLs and scoped packages, rejecting unverified third-party hosted proxies, URL-path credential templates (`/{token}`), and unverified `postinstall` binary downloaders
+- Run periodic passive external audits across public MCP registries, npm, and PyPI to identify high-signal namespace collisions, dormant placeholder clusters, and historical `0.0.1-security` holding packages targeting your brand
+
 ### Detection Guidance
 Look for:
 Hash/signature changes in installed packages
@@ -94,6 +104,10 @@ Plugins making calls to unknown domains
 Silent installation of new dependencies
 Unauthorized schema or configuration diffs
 Sudden behavior drift in MCP agents
+Presence of unverified third-party hosted MCP proxies or unverified npm/PyPI packages claiming the organization's brand when no official domain-anchored entry exists (*Official Registry Vacuum*)
+Remote MCP endpoint templates that accept or transmit bearer tokens/API keys in URL path parameters rather than `Authorization` headers
+Maintainer provenance mismatches (e.g., packages claiming enterprise brand ownership published by personal/free-email accounts with no link to verified organizational domains, or packages registering unrelated CLI `bin` names / unverified `postinstall` downloaders)
+Historical npm Security holding packages (`0.0.1-security`) occupying brand-named `mcp-server-*` identifiers, indicating prior supply-chain abuse in your brand's namespace
 
 ### Example Attack Scenarios
 
@@ -111,6 +125,9 @@ An attacker publishes a dependency to a public registry with the same name as an
 
 #### Scenario 5 — Build Pipeline Attack
 CI systems are compromised and append rogue instructions to MCP manifests, adding new privileged schema methods that call destructive APIs.
+
+#### Scenario 6 — Brand-Namespace Impersonation & Official Registry Vacuum
+An enterprise has not published an official domain-anchored server in the Official MCP Registry, even though developers and AI coding agents regularly search for integrations with its APIs. When an autonomous agent or engineer resolves the brand name across public registries, it encounters unverified third-party hosted proxies, dormant namespace-squatted placeholders, or unverified packages maintained via personal email accounts. Without strict client-side allowlists or domain provenance checks, credentials and operational context are routed through unvetted third-party infrastructure, transmitted inside URL path templates logged by intermediaries, or executed via unverified `postinstall` binary downloaders.
 
 ### References & Further Reading
 *   [https://genai.owasp.org/llmrisk/llm032025-supply-chain/](https://genai.owasp.org/llmrisk/llm032025-supply-chain/)
